@@ -9,11 +9,11 @@
 
 #import "Login.h"
 
-@interface ViewController ()
+@interface Login ()
 
 @end
 
-@implementation ViewController
+@implementation Login
 
 #pragma mark - UIViewController
 
