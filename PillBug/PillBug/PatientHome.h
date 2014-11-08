@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/PFLogInViewController.h>
 
-@interface PatientHome : UITableViewController
 
+@interface PatientHome : UITableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+- (IBAction)LogOutBtn:(id)sender;
 @end

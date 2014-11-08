@@ -8,18 +8,12 @@
 
 
 #import "Login.h"
-#import "PatientHome.h"
-#import "DoctorHome.h"
 
 @interface Login ()
 
 @end
 
 @implementation Login
-
-//- (IBAction)login:(id)sender{
-//    [self performSegueWithIdentifier:@"patient" sender:self];
-//}
 
 
 #pragma mark - UIViewController
@@ -59,8 +53,16 @@
         // Assign our sign up controller to be displayed from the login controller
         [logInViewController setSignUpController:signUpViewController];
         
+        
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword
+        | PFLogInFieldsLogInButton
+        | PFLogInFieldsSignUpButton
+        | PFLogInFieldsPasswordForgotten;
+
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
+        
+        
     } else {
         NSString *type = [[PFUser currentUser] objectForKey:@"type"];
         
@@ -94,17 +96,6 @@
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:NULL];
-    
-    NSString *type = [[PFUser currentUser] objectForKey:@"type"];
-   
-//    if([type isEqualToString:@"patient"]){
-//        NSLog(@"PATIENT");
-//        [self performSegueWithIdentifier:@"patient" sender:self];
-//        
-//    } else if ([type isEqualToString:@"doctor"]){
-//        NSLog(@"DOCTOR");
-//        [self performSegueWithIdentifier:@"doctor" sender:self];
-//    }
     
 }
 
@@ -157,13 +148,9 @@
 }
 
 #pragma mark - ()
-/*
-- (IBAction)logOutButtonTapAction:(id)sender {
-    [PFUser logOut];
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
-- (void)didReceiveMemoryWarning
+
+/*- (void)didReceiveMemoryWarning
  {
  [super didReceiveMemoryWarning];
  // Dispose of any resources that can be recreated.

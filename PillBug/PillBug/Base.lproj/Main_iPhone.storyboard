@@ -39,7 +39,11 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Doctor Home" id="tcS-fq-4et">
-                                    <barButtonItem key="leftBarButtonItem" title="Log Out" id="hL7-br-d4c"/>
+                                    <barButtonItem key="leftBarButtonItem" title="Log Out" id="hL7-br-d4c">
+                                        <connections>
+                                            <action selector="LogOutBtn:" destination="f9w-zE-sGX" id="voR-DM-PSU"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
@@ -76,7 +80,11 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Patient Home" id="oEp-5q-A4v">
-                                    <barButtonItem key="leftBarButtonItem" title="Log Out" id="wO3-Nw-zYB"/>
+                                    <barButtonItem key="leftBarButtonItem" title="Log Out" id="wO3-Nw-zYB">
+                                        <connections>
+                                            <action selector="LogOutBtn:" destination="CRl-m2-Ica" id="x4h-fd-Nzp"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
@@ -99,7 +107,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jbm-7t-LAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-618" y="-361"/>
+            <point key="canvasLocation" x="-541" y="-379"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
