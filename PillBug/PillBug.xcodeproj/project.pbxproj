@@ -38,6 +38,8 @@
 		ED1A77621A0D8AA500FEF54F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77611A0D8AA500FEF54F /* Social.framework */; };
 		ED1A77641A0D8AAC00FEF54F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77631A0D8AAC00FEF54F /* StoreKit.framework */; };
 		ED1A77661A0D8AB600FEF54F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77651A0D8AB600FEF54F /* SystemConfiguration.framework */; };
+		ED1A77691A0D945A00FEF54F /* PatientHome.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1A77681A0D945A00FEF54F /* PatientHome.m */; };
+		ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1A776B1A0D94F400FEF54F /* DoctorHome.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,10 @@
 		ED1A77611A0D8AA500FEF54F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		ED1A77631A0D8AAC00FEF54F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		ED1A77651A0D8AB600FEF54F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		ED1A77671A0D945A00FEF54F /* PatientHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientHome.h; sourceTree = "<group>"; };
+		ED1A77681A0D945A00FEF54F /* PatientHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientHome.m; sourceTree = "<group>"; };
+		ED1A776A1A0D94F400FEF54F /* DoctorHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorHome.h; sourceTree = "<group>"; };
+		ED1A776B1A0D94F400FEF54F /* DoctorHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorHome.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,10 @@
 				ED1A77241A0D897500FEF54F /* Main_iPad.storyboard */,
 				ED1A77271A0D897500FEF54F /* Login.h */,
 				ED1A77281A0D897500FEF54F /* Login.m */,
+				ED1A77671A0D945A00FEF54F /* PatientHome.h */,
+				ED1A77681A0D945A00FEF54F /* PatientHome.m */,
+				ED1A776A1A0D94F400FEF54F /* DoctorHome.h */,
+				ED1A776B1A0D94F400FEF54F /* DoctorHome.m */,
 				ED1A772A1A0D897500FEF54F /* Images.xcassets */,
 				ED1A77161A0D897500FEF54F /* Supporting Files */,
 			);
@@ -318,7 +328,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED1A77291A0D897500FEF54F /* Login.m in Sources */,
+				ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */,
 				ED1A77201A0D897500FEF54F /* AppDelegate.m in Sources */,
+				ED1A77691A0D945A00FEF54F /* PatientHome.m in Sources */,
 				ED1A771C1A0D897500FEF54F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,6 +554,7 @@
 				ED1A77431A0D897500FEF54F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED1A77441A0D897500FEF54F /* Build configuration list for PBXNativeTarget "PillBugTests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +563,7 @@
 				ED1A77461A0D897500FEF54F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

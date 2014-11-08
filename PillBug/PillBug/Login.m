@@ -8,12 +8,19 @@
 
 
 #import "Login.h"
+#import "PatientHome.h"
+#import "DoctorHome.h"
 
 @interface Login ()
 
 @end
 
 @implementation Login
+
+//- (IBAction)login:(id)sender{
+//    [self performSegueWithIdentifier:@"patient" sender:self];
+//}
+
 
 #pragma mark - UIViewController
 
@@ -22,22 +29,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+/*- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if ([PFUser currentUser]) {
         self.welcomeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Welcome %@!", nil), [[PFUser currentUser] username]];
         
-        NSString *type = [[PFUser currentUser] objectForKey:@"type"];
-        NSLog(@"%@ has logged in", type);
-        
+   
         
     } else {
         self.welcomeLabel.text = NSLocalizedString(@"Not logged in", nil);
     }
-}
+} */
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -57,6 +61,19 @@
         
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
+    } else {
+        NSString *type = [[PFUser currentUser] objectForKey:@"type"];
+        
+        
+        if([type isEqualToString:@"patient"]){
+            NSLog(@"PATIENT");
+            [self performSegueWithIdentifier:@"patient" sender:self];
+            
+        } else if ([type isEqualToString:@"doctor"]){
+            NSLog(@"DOCTOR");
+            [self performSegueWithIdentifier:@"doctor" sender:self];
+        }
+        
     }
     
 }
@@ -79,7 +96,15 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
     
     NSString *type = [[PFUser currentUser] objectForKey:@"type"];
-    NSLog(@"%@ has logged in", type);
+   
+//    if([type isEqualToString:@"patient"]){
+//        NSLog(@"PATIENT");
+//        [self performSegueWithIdentifier:@"patient" sender:self];
+//        
+//    } else if ([type isEqualToString:@"doctor"]){
+//        NSLog(@"DOCTOR");
+//        [self performSegueWithIdentifier:@"doctor" sender:self];
+//    }
     
 }
 
@@ -132,13 +157,13 @@
 }
 
 #pragma mark - ()
-
+/*
 - (IBAction)logOutButtonTapAction:(id)sender {
     [PFUser logOut];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-/*- (void)didReceiveMemoryWarning
+- (void)didReceiveMemoryWarning
  {
  [super didReceiveMemoryWarning];
  // Dispose of any resources that can be recreated.
