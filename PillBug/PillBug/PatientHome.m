@@ -120,14 +120,8 @@
 */
 
 - (IBAction)LogOutBtn:(id)sender {
-    [PFUser logOut];
-    PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-    [logInViewController setDelegate:self]; // Set ourselves as the delegate
-    logInViewController.fields = PFLogInFieldsUsernameAndPassword
-    | PFLogInFieldsLogInButton
-    | PFLogInFieldsSignUpButton
-    | PFLogInFieldsPasswordForgotten;
-    [self presentViewController:logInViewController animated:YES completion:NULL];
+    [PFUser logOut];    
+    [self dismissModalViewControllerAnimated:YES];
 
 }
 @end

@@ -8,6 +8,7 @@
 
 
 #import "Login.h"
+#import "RegisterViewController.h"
 
 @interface Login ()
 
@@ -22,6 +23,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSLog(@"viewDidLoad");
+    
     
 }
 
@@ -74,6 +78,8 @@
         } else if ([type isEqualToString:@"doctor"]){
             NSLog(@"DOCTOR");
             [self performSegueWithIdentifier:@"doctor" sender:self];
+        } else {
+            [self performSegueWithIdentifier:@"unregistered" sender:self];
         }
         
     }
@@ -95,6 +101,8 @@
 
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    
+    
     [self dismissViewControllerAnimated:YES completion:NULL];
     
 }
@@ -134,7 +142,11 @@
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    [PFUser logOut];
+    
+    [self dismissModalViewControllerAnimated:YES];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Sent to the delegate when the sign up attempt fails.

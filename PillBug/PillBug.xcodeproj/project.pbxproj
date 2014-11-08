@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */; };
 		ED1A77101A0D897500FEF54F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A770F1A0D897500FEF54F /* Foundation.framework */; };
 		ED1A77121A0D897500FEF54F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77111A0D897500FEF54F /* CoreGraphics.framework */; };
 		ED1A77141A0D897500FEF54F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77131A0D897500FEF54F /* UIKit.framework */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED15C9BC1A0EB5E5007E7BDC /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		ED1A770C1A0D897500FEF54F /* PillBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1A770F1A0D897500FEF54F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ED1A77111A0D897500FEF54F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -190,6 +193,8 @@
 				ED1A77241A0D897500FEF54F /* Main_iPad.storyboard */,
 				ED1A77271A0D897500FEF54F /* Login.h */,
 				ED1A77281A0D897500FEF54F /* Login.m */,
+				ED15C9BC1A0EB5E5007E7BDC /* RegisterViewController.h */,
+				ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */,
 				ED1A77671A0D945A00FEF54F /* PatientHome.h */,
 				ED1A77681A0D945A00FEF54F /* PatientHome.m */,
 				ED1A776A1A0D94F400FEF54F /* DoctorHome.h */,
@@ -328,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED1A77291A0D897500FEF54F /* Login.m in Sources */,
+				ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */,
 				ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */,
 				ED1A77201A0D897500FEF54F /* AppDelegate.m in Sources */,
 				ED1A77691A0D945A00FEF54F /* PatientHome.m in Sources */,
