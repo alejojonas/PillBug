@@ -9,7 +9,14 @@
 #import "PatientHome.h"
 #import "Login.h"
 
-@interface PatientHome ()
+//Patient Data currently hard coded in viewDidLoad. Each medicine must have a matching jpg
+//ie if "Ibufrofen" in list of medicine, "Ibuprofen.jpg" must exist.
+//
+
+@interface PatientHome (){
+    NSArray *demoPatientData; //DATA CURRENTLY HARD CODE FILLED
+}
+
 
 @end
 
@@ -27,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.demoPatientData= [[NSArray alloc] initWithObjects: @"Ibuprofen", @"Tylenol", @"Advil", nil];
+    demoPatientData= @[@"Ibuprofen", @"Tylenol", @"Advil",@"Ibuprofen",@"Tylenol",@"Advil"]; //HARD CODED PATIENT DATA
     
     NSLog(@"PATIENT HOME SCREEN");
     
@@ -36,6 +43,15 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (NSString *)getImageFilename:(NSString *)demoPatientData
+{
+    //ALL PATIENT MEDICINE MUST HAVE MATCHING IMAGE FILE WITH SAME NAME + JPG
+    NSString *imageFilename = [[demoPatientData capitalizedString]stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    imageFilename = [imageFilename stringByAppendingString:@".jpg"];
+
+    return imageFilename;
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,17 +75,19 @@
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
     //return 0;
-    return [self.demoPatientData count];
+    return [demoPatientData count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier =@"PatientCell";
-    UITableViewCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PatientCell" forIndexPath:indexPath];
     
-    cell.textLabel.text=[self.demoPatientData objectAtIndex:indexPath.row];
+    // Configure the cell...
+    NSString *pillName = [demoPatientData objectAtIndex:indexPath.row];
+    cell.textLabel.text = pillName;
+    cell.imageView.image = [UIImage imageNamed:[self getImageFilename:pillName]];
+    
     
     return cell;
 }

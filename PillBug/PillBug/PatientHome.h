@@ -11,7 +11,6 @@
 
 
 @interface PatientHome : UITableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
-@property (nonatomic,strong) NSArray *demoPatientData;
 - (IBAction)LogOutBtn:(id)sender;
 
 

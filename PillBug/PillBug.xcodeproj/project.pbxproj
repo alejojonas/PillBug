@@ -39,8 +39,14 @@
 		ED1A77621A0D8AA500FEF54F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77611A0D8AA500FEF54F /* Social.framework */; };
 		ED1A77641A0D8AAC00FEF54F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77631A0D8AAC00FEF54F /* StoreKit.framework */; };
 		ED1A77661A0D8AB600FEF54F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77651A0D8AB600FEF54F /* SystemConfiguration.framework */; };
-		ED1A77691A0D945A00FEF54F /* PatientHome.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1A77681A0D945A00FEF54F /* PatientHome.m */; };
 		ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1A776B1A0D94F400FEF54F /* DoctorHome.m */; };
+		ED9782951A0F3ACE0058B428 /* Advil.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782931A0F3ACE0058B428 /* Advil.jpg */; };
+		ED9782961A0F3ACE0058B428 /* AdvilBottle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782941A0F3ACE0058B428 /* AdvilBottle.jpg */; };
+		ED9782991A0F3ADF0058B428 /* Ibuprofen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782971A0F3ADF0058B428 /* Ibuprofen.jpg */; };
+		ED97829A1A0F3ADF0058B428 /* IbuprofenBottle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782981A0F3ADF0058B428 /* IbuprofenBottle.jpg */; };
+		ED97829D1A0F3AEA0058B428 /* Tylenol.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED97829B1A0F3AEA0058B428 /* Tylenol.jpg */; };
+		ED97829E1A0F3AEA0058B428 /* TylenolBottle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED97829C1A0F3AEA0058B428 /* TylenolBottle.jpg */; };
+		ED9782A11A0F3BD10058B428 /* PatientHome.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9782A01A0F3BD10058B428 /* PatientHome.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,10 +98,16 @@
 		ED1A77611A0D8AA500FEF54F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		ED1A77631A0D8AAC00FEF54F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		ED1A77651A0D8AB600FEF54F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		ED1A77671A0D945A00FEF54F /* PatientHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientHome.h; sourceTree = "<group>"; };
-		ED1A77681A0D945A00FEF54F /* PatientHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientHome.m; sourceTree = "<group>"; };
 		ED1A776A1A0D94F400FEF54F /* DoctorHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorHome.h; sourceTree = "<group>"; };
 		ED1A776B1A0D94F400FEF54F /* DoctorHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorHome.m; sourceTree = "<group>"; };
+		ED9782931A0F3ACE0058B428 /* Advil.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Advil.jpg; sourceTree = "<group>"; };
+		ED9782941A0F3ACE0058B428 /* AdvilBottle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AdvilBottle.jpg; sourceTree = "<group>"; };
+		ED9782971A0F3ADF0058B428 /* Ibuprofen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ibuprofen.jpg; sourceTree = "<group>"; };
+		ED9782981A0F3ADF0058B428 /* IbuprofenBottle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IbuprofenBottle.jpg; sourceTree = "<group>"; };
+		ED97829B1A0F3AEA0058B428 /* Tylenol.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tylenol.jpg; sourceTree = "<group>"; };
+		ED97829C1A0F3AEA0058B428 /* TylenolBottle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TylenolBottle.jpg; sourceTree = "<group>"; };
+		ED97829F1A0F3BD10058B428 /* PatientHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientHome.h; sourceTree = "<group>"; };
+		ED9782A01A0F3BD10058B428 /* PatientHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientHome.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,13 +202,14 @@
 				ED1A771E1A0D897500FEF54F /* AppDelegate.h */,
 				ED1A771F1A0D897500FEF54F /* AppDelegate.m */,
 				ED1A77211A0D897500FEF54F /* Main_iPhone.storyboard */,
+				ED9782A21A0F41380058B428 /* Images */,
+				ED97829F1A0F3BD10058B428 /* PatientHome.h */,
+				ED9782A01A0F3BD10058B428 /* PatientHome.m */,
 				ED1A77241A0D897500FEF54F /* Main_iPad.storyboard */,
 				ED1A77271A0D897500FEF54F /* Login.h */,
 				ED1A77281A0D897500FEF54F /* Login.m */,
 				ED15C9BC1A0EB5E5007E7BDC /* RegisterViewController.h */,
 				ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */,
-				ED1A77671A0D945A00FEF54F /* PatientHome.h */,
-				ED1A77681A0D945A00FEF54F /* PatientHome.m */,
 				ED1A776A1A0D94F400FEF54F /* DoctorHome.h */,
 				ED1A776B1A0D94F400FEF54F /* DoctorHome.m */,
 				ED1A772A1A0D897500FEF54F /* Images.xcassets */,
@@ -232,6 +245,19 @@
 				ED1A773A1A0D897500FEF54F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED9782A21A0F41380058B428 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				ED97829C1A0F3AEA0058B428 /* TylenolBottle.jpg */,
+				ED9782971A0F3ADF0058B428 /* Ibuprofen.jpg */,
+				ED9782981A0F3ADF0058B428 /* IbuprofenBottle.jpg */,
+				ED97829B1A0F3AEA0058B428 /* Tylenol.jpg */,
+				ED9782931A0F3ACE0058B428 /* Advil.jpg */,
+				ED9782941A0F3ACE0058B428 /* AdvilBottle.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,8 +338,14 @@
 			files = (
 				ED1A77261A0D897500FEF54F /* Main_iPad.storyboard in Resources */,
 				ED1A772B1A0D897500FEF54F /* Images.xcassets in Resources */,
+				ED97829D1A0F3AEA0058B428 /* Tylenol.jpg in Resources */,
+				ED97829E1A0F3AEA0058B428 /* TylenolBottle.jpg in Resources */,
+				ED9782961A0F3ACE0058B428 /* AdvilBottle.jpg in Resources */,
 				ED1A77231A0D897500FEF54F /* Main_iPhone.storyboard in Resources */,
+				ED9782951A0F3ACE0058B428 /* Advil.jpg in Resources */,
 				ED1A771A1A0D897500FEF54F /* InfoPlist.strings in Resources */,
+				ED97829A1A0F3ADF0058B428 /* IbuprofenBottle.jpg in Resources */,
+				ED9782991A0F3ADF0058B428 /* Ibuprofen.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,9 +366,9 @@
 			files = (
 				ED1A77291A0D897500FEF54F /* Login.m in Sources */,
 				ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */,
+				ED9782A11A0F3BD10058B428 /* PatientHome.m in Sources */,
 				ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */,
 				ED1A77201A0D897500FEF54F /* AppDelegate.m in Sources */,
-				ED1A77691A0D945A00FEF54F /* PatientHome.m in Sources */,
 				ED1A771C1A0D897500FEF54F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
