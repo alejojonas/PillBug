@@ -25,7 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2086" y="-316"/>
+            <point key="canvasLocation" x="-2966" y="-384"/>
         </scene>
         <!--Doctor Home-->
         <scene sceneID="zdr-6V-jyJ">
@@ -51,6 +51,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="OKJ-l0-2A8" kind="modal" trigger="accessoryAction" id="UB5-Vi-mlF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -93,7 +96,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfl-tp-HAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1681" y="-1063"/>
+            <point key="canvasLocation" x="-2561" y="-1131"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GR5-ZW-o75">
+            <objects>
+                <viewController id="iPz-53-x6C" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RTx-iM-asd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rfx-iD-pfZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8x8-Py-UfF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gyw-nO-cLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2021" y="-1403"/>
+        </scene>
+        <!--View Controller - Item 1-->
+        <scene sceneID="nsp-uE-HPN">
+            <objects>
+                <viewController id="iFL-8e-Ioy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yk3-AX-NZq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vlu-qs-LeN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CRE-HG-7cl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="oFg-Ho-fSw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aa9-qj-9bD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1445" y="-952"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zDs-eH-Bv2">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="OKJ-l0-2A8" customClass="TabBarController" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ff2-Mh-ivm">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="iFL-8e-Ioy" kind="relationship" relationship="viewControllers" id="kiX-KJ-PlJ"/>
+                        <segue destination="zdZ-h7-dU0" kind="relationship" relationship="viewControllers" id="nUx-gC-qlz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P66-da-OpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2021" y="-656"/>
+        </scene>
+        <!--View Controller - Item 2-->
+        <scene sceneID="G8Z-WA-aUu">
+            <objects>
+                <viewController id="zdZ-h7-dU0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UNm-vH-Ks2"/>
+                        <viewControllerLayoutGuide type="bottom" id="PfP-gA-MqT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f1M-yP-CHd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Mdo-O3-4n6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohd-NX-kOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1445" y="-300"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="3Zl-aK-gqG">
@@ -156,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIN-M8-HZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1681" y="-316"/>
+            <point key="canvasLocation" x="-2561" y="-384"/>
         </scene>
         <!--Patient Home - Title-->
         <scene sceneID="mgC-pq-v34">
@@ -198,7 +276,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jbm-7t-LAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1681" y="453"/>
+            <point key="canvasLocation" x="-2561" y="385"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

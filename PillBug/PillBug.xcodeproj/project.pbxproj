@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */; };
-		ED15C9E71A0F4EEB007E7BDC /* AddPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9DE1A0F4EEB007E7BDC /* AddPatient.m */; };
-		ED15C9E81A0F4EEB007E7BDC /* PatientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9E01A0F4EEB007E7BDC /* PatientInfo.m */; };
-		ED15C9E91A0F4EEB007E7BDC /* PatientPrescription.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9E21A0F4EEB007E7BDC /* PatientPrescription.m */; };
-		ED15C9EA1A0F4EEB007E7BDC /* PrescriptionEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9E41A0F4EEB007E7BDC /* PrescriptionEditor.m */; };
-		ED15C9EB1A0F4EEB007E7BDC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9E61A0F4EEB007E7BDC /* TabBarController.m */; };
 		ED1A77101A0D897500FEF54F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A770F1A0D897500FEF54F /* Foundation.framework */; };
 		ED1A77121A0D897500FEF54F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77111A0D897500FEF54F /* CoreGraphics.framework */; };
 		ED1A77141A0D897500FEF54F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77131A0D897500FEF54F /* UIKit.framework */; };
@@ -67,16 +62,6 @@
 /* Begin PBXFileReference section */
 		ED15C9BC1A0EB5E5007E7BDC /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		ED15C9DD1A0F4EEB007E7BDC /* AddPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPatient.h; sourceTree = "<group>"; };
-		ED15C9DE1A0F4EEB007E7BDC /* AddPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPatient.m; sourceTree = "<group>"; };
-		ED15C9DF1A0F4EEB007E7BDC /* PatientInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInfo.h; sourceTree = "<group>"; };
-		ED15C9E01A0F4EEB007E7BDC /* PatientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfo.m; sourceTree = "<group>"; };
-		ED15C9E11A0F4EEB007E7BDC /* PatientPrescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientPrescription.h; sourceTree = "<group>"; };
-		ED15C9E21A0F4EEB007E7BDC /* PatientPrescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientPrescription.m; sourceTree = "<group>"; };
-		ED15C9E31A0F4EEB007E7BDC /* PrescriptionEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrescriptionEditor.h; sourceTree = "<group>"; };
-		ED15C9E41A0F4EEB007E7BDC /* PrescriptionEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrescriptionEditor.m; sourceTree = "<group>"; };
-		ED15C9E51A0F4EEB007E7BDC /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
-		ED15C9E61A0F4EEB007E7BDC /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		ED1A770C1A0D897500FEF54F /* PillBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1A770F1A0D897500FEF54F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ED1A77111A0D897500FEF54F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -214,16 +199,6 @@
 		ED1A77151A0D897500FEF54F /* PillBug */ = {
 			isa = PBXGroup;
 			children = (
-				ED15C9DD1A0F4EEB007E7BDC /* AddPatient.h */,
-				ED15C9DE1A0F4EEB007E7BDC /* AddPatient.m */,
-				ED15C9DF1A0F4EEB007E7BDC /* PatientInfo.h */,
-				ED15C9E01A0F4EEB007E7BDC /* PatientInfo.m */,
-				ED15C9E11A0F4EEB007E7BDC /* PatientPrescription.h */,
-				ED15C9E21A0F4EEB007E7BDC /* PatientPrescription.m */,
-				ED15C9E31A0F4EEB007E7BDC /* PrescriptionEditor.h */,
-				ED15C9E41A0F4EEB007E7BDC /* PrescriptionEditor.m */,
-				ED15C9E51A0F4EEB007E7BDC /* TabBarController.h */,
-				ED15C9E61A0F4EEB007E7BDC /* TabBarController.m */,
 				ED1A771E1A0D897500FEF54F /* AppDelegate.h */,
 				ED1A771F1A0D897500FEF54F /* AppDelegate.m */,
 				ED1A77211A0D897500FEF54F /* Main_iPhone.storyboard */,
@@ -390,13 +365,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED1A77291A0D897500FEF54F /* Login.m in Sources */,
-				ED15C9E81A0F4EEB007E7BDC /* PatientInfo.m in Sources */,
-				ED15C9E91A0F4EEB007E7BDC /* PatientPrescription.m in Sources */,
-				ED15C9E71A0F4EEB007E7BDC /* AddPatient.m in Sources */,
 				ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */,
-				ED15C9EB1A0F4EEB007E7BDC /* TabBarController.m in Sources */,
 				ED9782A11A0F3BD10058B428 /* PatientHome.m in Sources */,
-				ED15C9EA1A0F4EEB007E7BDC /* PrescriptionEditor.m in Sources */,
 				ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */,
 				ED1A77201A0D897500FEF54F /* AppDelegate.m in Sources */,
 				ED1A771C1A0D897500FEF54F /* main.m in Sources */,
