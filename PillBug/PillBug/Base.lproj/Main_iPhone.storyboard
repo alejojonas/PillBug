@@ -19,7 +19,6 @@
                     </view>
                     <connections>
                         <segue destination="CRl-m2-Ica" kind="modal" identifier="patient" id="vXW-cL-r6p"/>
-                        <segue destination="f9w-zE-sGX" kind="modal" identifier="" id="bKV-1N-MPC"/>
                         <segue destination="zEJ-2W-eeG" kind="modal" identifier="unregistered" id="PNU-r5-0sk"/>
                         <segue destination="oB3-Im-bRh" kind="modal" identifier="doctor" id="BTF-8A-mmu"/>
                     </connections>
@@ -99,47 +98,6 @@
             </objects>
             <point key="canvasLocation" x="-1681" y="-1063"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="4SO-O2-fw2">
-            <objects>
-                <tableViewController id="f9w-zE-sGX" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dzV-bI-9WO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="dPN-zk-XRd">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Doctor Home" id="tcS-fq-4et">
-                                    <barButtonItem key="leftBarButtonItem" title="Log Out" id="hL7-br-d4c">
-                                        <connections>
-                                            <action selector="LogOutBtn:" destination="f9w-zE-sGX" id="voR-DM-PSU"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nwf-pk-WZd">
-                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nwf-pk-WZd" id="eGb-Gs-SBP">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="f9w-zE-sGX" id="MgM-uU-2g9"/>
-                            <outlet property="delegate" destination="f9w-zE-sGX" id="olv-cE-pa6"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K0f-vR-UlE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2563" y="-316"/>
-        </scene>
         <!--Register View Controller-->
         <scene sceneID="3Zl-aK-gqG">
             <objects>
@@ -184,7 +142,6 @@
                                 </state>
                                 <connections>
                                     <action selector="doctorBtn:" destination="zEJ-2W-eeG" eventType="touchDown" id="gs3-Un-KDP"/>
-                                    <segue destination="f9w-zE-sGX" kind="modal" id="YpF-xo-fJm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lml-wu-Szr">
@@ -255,6 +212,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="AEN-CB-GBP"/>
         <segue reference="SpS-ET-o8p"/>
-        <segue reference="YpF-xo-fJm"/>
     </inferredMetricsTieBreakers>
 </document>
