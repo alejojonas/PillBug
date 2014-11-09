@@ -394,6 +394,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="xYS-ih-oIi" kind="modal" id="yvQ-7d-gf6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -405,7 +408,43 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jbm-7t-LAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2561" y="385"/>
+            <point key="canvasLocation" x="-2561" y="297"/>
+        </scene>
+        <!--Prescription Info-->
+        <scene sceneID="z8b-d9-ruo">
+            <objects>
+                <viewController id="xYS-ih-oIi" customClass="PrescriptionInfo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EXh-pR-ABf"/>
+                        <viewControllerLayoutGuide type="bottom" id="OcG-8A-r3K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kR9-l5-dNA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNa-9k-u3h">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="PRESCRIPTION INFO" id="yu7-tp-PYb">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="hwM-6l-Mhg">
+                                            <connections>
+                                                <action selector="BackBtn:" destination="xYS-ih-oIi" id="lT0-IK-6TG"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backBtn" destination="hwM-6l-Mhg" id="kkp-83-xJ5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mag-oX-dmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2021" y="297"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
