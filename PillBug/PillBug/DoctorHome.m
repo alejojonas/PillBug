@@ -14,6 +14,14 @@
 
 @implementation DoctorHome
 
+/*- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+ CGRect frame = self.addPatient.frame;
+ frame.origin.y = self.navBar.frame.size.height + self.tableView.frame.size.height + self.searchBar.frame.size.height;
+ self.addPatient.frame = frame;
+ 
+ [self.view bringSubviewToFront:self.addPatient];
+ }*/
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,21 +31,21 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
-   
-
     
-    
-    
-    mainArray = [[NSArray alloc] initWithObjects:@"one", @"two", @"three", nil];
+    mainArray = [[NSArray alloc] initWithObjects:@"patient 1", @"patient 2", @"patient 3", @"patient 4", @"patient 5", nil];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [mainArray count];
 }
+
+
 
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,9 +74,6 @@
 - (IBAction)logOutBtn:(id)sender {
     [PFUser logOut];
     [self dismissModalViewControllerAnimated:YES];
-}
-
-- (IBAction)addPatient:(id)sender {
 }
 
 @end
