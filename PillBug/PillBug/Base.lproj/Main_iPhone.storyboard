@@ -25,7 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1084" y="-68"/>
+            <point key="canvasLocation" x="-1050" y="-10"/>
         </scene>
         <!--Doctor Home-->
         <scene sceneID="4SO-O2-fw2">
@@ -66,7 +66,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0f-vR-UlE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1553" y="-760"/>
+            <point key="canvasLocation" x="-1469" y="-790"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="3Zl-aK-gqG">
@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIN-M8-HZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1074" y="-760"/>
+            <point key="canvasLocation" x="-840" y="-880"/>
         </scene>
         <!--Patient Home - Title-->
         <scene sceneID="mgC-pq-v34">
@@ -151,7 +151,7 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="AmD-jf-zRi">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PatientCell" id="AmD-jf-zRi">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AmD-jf-zRi" id="LX8-Gj-xVg">
@@ -169,7 +169,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jbm-7t-LAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-587" y="-760"/>
+            <point key="canvasLocation" x="-283" y="-768"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -178,7 +178,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bKV-1N-MPC"/>
-        <segue reference="vXW-cL-r6p"/>
+        <segue reference="SpS-ET-o8p"/>
+        <segue reference="YpF-xo-fJm"/>
     </inferredMetricsTieBreakers>
 </document>
