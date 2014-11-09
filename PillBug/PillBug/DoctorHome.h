@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Parse/PFLogInViewController.h>
 
-@interface DoctorHome : UITableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
-
-- (IBAction)LogOutBtn:(id)sender;
+@interface DoctorHome : UIViewController <UITabBarDelegate, UITableViewDataSource, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>{
+    IBOutlet UITableView *tableView;
+    
+    NSArray * mainArray;
+}
+- (IBAction)logOutBtn:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *addPatient;
 
 @end
