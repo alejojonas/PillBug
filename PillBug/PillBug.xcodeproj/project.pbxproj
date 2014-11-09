@@ -12,6 +12,7 @@
 		ED15C9F11A0F5747007E7BDC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9F01A0F5747007E7BDC /* TabBarController.m */; };
 		ED15C9F41A0F5842007E7BDC /* PatientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9F31A0F5842007E7BDC /* PatientInfo.m */; };
 		ED15C9F71A0F594F007E7BDC /* PatientPrescription.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9F61A0F594F007E7BDC /* PatientPrescription.m */; };
+		ED15C9FA1A0F59EA007E7BDC /* PrescriptionEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9F91A0F59EA007E7BDC /* PrescriptionEditor.m */; };
 		ED1A77101A0D897500FEF54F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A770F1A0D897500FEF54F /* Foundation.framework */; };
 		ED1A77121A0D897500FEF54F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77111A0D897500FEF54F /* CoreGraphics.framework */; };
 		ED1A77141A0D897500FEF54F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77131A0D897500FEF54F /* UIKit.framework */; };
@@ -74,6 +75,8 @@
 		ED15C9F31A0F5842007E7BDC /* PatientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfo.m; sourceTree = "<group>"; };
 		ED15C9F51A0F594F007E7BDC /* PatientPrescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientPrescription.h; sourceTree = "<group>"; };
 		ED15C9F61A0F594F007E7BDC /* PatientPrescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientPrescription.m; sourceTree = "<group>"; };
+		ED15C9F81A0F59EA007E7BDC /* PrescriptionEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrescriptionEditor.h; sourceTree = "<group>"; };
+		ED15C9F91A0F59EA007E7BDC /* PrescriptionEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrescriptionEditor.m; sourceTree = "<group>"; };
 		ED1A770C1A0D897500FEF54F /* PillBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1A770F1A0D897500FEF54F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ED1A77111A0D897500FEF54F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -232,6 +235,8 @@
 				ED15C9F31A0F5842007E7BDC /* PatientInfo.m */,
 				ED15C9F51A0F594F007E7BDC /* PatientPrescription.h */,
 				ED15C9F61A0F594F007E7BDC /* PatientPrescription.m */,
+				ED15C9F81A0F59EA007E7BDC /* PrescriptionEditor.h */,
+				ED15C9F91A0F59EA007E7BDC /* PrescriptionEditor.m */,
 				ED1A772A1A0D897500FEF54F /* Images.xcassets */,
 				ED1A77161A0D897500FEF54F /* Supporting Files */,
 			);
@@ -384,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED15C9FA1A0F59EA007E7BDC /* PrescriptionEditor.m in Sources */,
 				ED1A77291A0D897500FEF54F /* Login.m in Sources */,
 				ED15C9EE1A0F567F007E7BDC /* AddPatient.m in Sources */,
 				ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */,

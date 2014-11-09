@@ -269,10 +269,10 @@
             </objects>
             <point key="canvasLocation" x="-1445" y="-300"/>
         </scene>
-        <!--View Controller-->
+        <!--Prescription Editor-->
         <scene sceneID="JUP-Nq-MOq">
             <objects>
-                <viewController id="ae5-5w-BsI" sceneMemberID="viewController">
+                <viewController id="ae5-5w-BsI" customClass="PrescriptionEditor" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NLU-nf-sRi"/>
                         <viewControllerLayoutGuide type="bottom" id="mDb-rJ-Hza"/>
@@ -286,7 +286,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="EDIT PRESCRIPTION" id="FeV-LG-eGF">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="co8-jt-ogN"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="co8-jt-ogN">
+                                            <connections>
+                                                <action selector="backBtn:" destination="ae5-5w-BsI" id="2ei-tV-R68"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
