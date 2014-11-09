@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="-2561" y="-1131"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Patient-->
         <scene sceneID="GR5-ZW-o75">
             <objects>
-                <viewController id="iPz-53-x6C" sceneMemberID="viewController">
+                <viewController id="iPz-53-x6C" customClass="AddPatient" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RTx-iM-asd"/>
                         <viewControllerLayoutGuide type="bottom" id="Rfx-iD-pfZ"/>
@@ -127,13 +127,21 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="iPz-53-x6C" id="Kqx-Q7-Clr"/>
+                                    <outlet property="delegate" destination="iPz-53-x6C" id="ljX-79-Z4n"/>
+                                </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fR-h0-Bfb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="ADD PATIENT" id="xf0-OB-tHC">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="UyQ-0m-dvZ"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="UyQ-0m-dvZ">
+                                            <connections>
+                                                <action selector="backBtn:" destination="iPz-53-x6C" id="Vpj-86-Wrq"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -141,6 +149,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="IdW-dp-dFx" id="kCf-QY-2re"/>
                         <segue destination="OKJ-l0-2A8" kind="modal" identifier="confirmAdd" id="Xgz-2y-Met"/>
                     </connections>
                 </viewController>

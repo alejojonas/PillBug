@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */; };
+		ED15C9EE1A0F567F007E7BDC /* AddPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9ED1A0F567F007E7BDC /* AddPatient.m */; };
+		ED15C9F11A0F5747007E7BDC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9F01A0F5747007E7BDC /* TabBarController.m */; };
 		ED1A77101A0D897500FEF54F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A770F1A0D897500FEF54F /* Foundation.framework */; };
 		ED1A77121A0D897500FEF54F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77111A0D897500FEF54F /* CoreGraphics.framework */; };
 		ED1A77141A0D897500FEF54F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77131A0D897500FEF54F /* UIKit.framework */; };
@@ -62,6 +64,10 @@
 /* Begin PBXFileReference section */
 		ED15C9BC1A0EB5E5007E7BDC /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		ED15C9EC1A0F567F007E7BDC /* AddPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPatient.h; sourceTree = "<group>"; };
+		ED15C9ED1A0F567F007E7BDC /* AddPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPatient.m; sourceTree = "<group>"; };
+		ED15C9EF1A0F5747007E7BDC /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		ED15C9F01A0F5747007E7BDC /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		ED1A770C1A0D897500FEF54F /* PillBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1A770F1A0D897500FEF54F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ED1A77111A0D897500FEF54F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -202,16 +208,20 @@
 				ED1A771E1A0D897500FEF54F /* AppDelegate.h */,
 				ED1A771F1A0D897500FEF54F /* AppDelegate.m */,
 				ED1A77211A0D897500FEF54F /* Main_iPhone.storyboard */,
+				ED1A77241A0D897500FEF54F /* Main_iPad.storyboard */,
 				ED9782A21A0F41380058B428 /* Images */,
 				ED97829F1A0F3BD10058B428 /* PatientHome.h */,
 				ED9782A01A0F3BD10058B428 /* PatientHome.m */,
-				ED1A77241A0D897500FEF54F /* Main_iPad.storyboard */,
 				ED1A77271A0D897500FEF54F /* Login.h */,
 				ED1A77281A0D897500FEF54F /* Login.m */,
 				ED15C9BC1A0EB5E5007E7BDC /* RegisterViewController.h */,
 				ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */,
 				ED1A776A1A0D94F400FEF54F /* DoctorHome.h */,
 				ED1A776B1A0D94F400FEF54F /* DoctorHome.m */,
+				ED15C9EC1A0F567F007E7BDC /* AddPatient.h */,
+				ED15C9ED1A0F567F007E7BDC /* AddPatient.m */,
+				ED15C9EF1A0F5747007E7BDC /* TabBarController.h */,
+				ED15C9F01A0F5747007E7BDC /* TabBarController.m */,
 				ED1A772A1A0D897500FEF54F /* Images.xcassets */,
 				ED1A77161A0D897500FEF54F /* Supporting Files */,
 			);
@@ -365,9 +375,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED1A77291A0D897500FEF54F /* Login.m in Sources */,
+				ED15C9EE1A0F567F007E7BDC /* AddPatient.m in Sources */,
 				ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */,
 				ED9782A11A0F3BD10058B428 /* PatientHome.m in Sources */,
 				ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */,
+				ED15C9F11A0F5747007E7BDC /* TabBarController.m in Sources */,
 				ED1A77201A0D897500FEF54F /* AppDelegate.m in Sources */,
 				ED1A771C1A0D897500FEF54F /* main.m in Sources */,
 			);
