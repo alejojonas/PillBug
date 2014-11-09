@@ -210,10 +210,10 @@
             </objects>
             <point key="canvasLocation" x="-2021" y="-656"/>
         </scene>
-        <!--View Controller - PRESCRIPTIONS-->
+        <!--Patient Prescription - PRESCRIPTIONS-->
         <scene sceneID="G8Z-WA-aUu">
             <objects>
-                <viewController id="zdZ-h7-dU0" sceneMemberID="viewController">
+                <viewController id="zdZ-h7-dU0" customClass="PatientPrescription" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UNm-vH-Ks2"/>
                         <viewControllerLayoutGuide type="bottom" id="PfP-gA-MqT"/>
@@ -239,13 +239,21 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zdZ-h7-dU0" id="gc9-eK-m1T"/>
+                                    <outlet property="delegate" destination="zdZ-h7-dU0" id="8e4-o7-j4I"/>
+                                </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-Lb-sHn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="PRESCRIPTIONS" id="hAC-io-jyE">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="au2-8w-JGt"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="au2-8w-JGt">
+                                            <connections>
+                                                <action selector="backBtn:" destination="zdZ-h7-dU0" id="a49-V6-UU3"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -253,6 +261,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="PRESCRIPTIONS" id="Mdo-O3-4n6"/>
+                    <connections>
+                        <outlet property="tableView" destination="Hpx-TY-Kpd" id="FrP-86-aFB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohd-NX-kOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
