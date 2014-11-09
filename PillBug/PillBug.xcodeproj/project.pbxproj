@@ -10,6 +10,7 @@
 		ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */; };
 		ED15C9EE1A0F567F007E7BDC /* AddPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9ED1A0F567F007E7BDC /* AddPatient.m */; };
 		ED15C9F11A0F5747007E7BDC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9F01A0F5747007E7BDC /* TabBarController.m */; };
+		ED15C9F41A0F5842007E7BDC /* PatientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ED15C9F31A0F5842007E7BDC /* PatientInfo.m */; };
 		ED1A77101A0D897500FEF54F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A770F1A0D897500FEF54F /* Foundation.framework */; };
 		ED1A77121A0D897500FEF54F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77111A0D897500FEF54F /* CoreGraphics.framework */; };
 		ED1A77141A0D897500FEF54F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77131A0D897500FEF54F /* UIKit.framework */; };
@@ -68,6 +69,8 @@
 		ED15C9ED1A0F567F007E7BDC /* AddPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPatient.m; sourceTree = "<group>"; };
 		ED15C9EF1A0F5747007E7BDC /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		ED15C9F01A0F5747007E7BDC /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		ED15C9F21A0F5842007E7BDC /* PatientInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInfo.h; sourceTree = "<group>"; };
+		ED15C9F31A0F5842007E7BDC /* PatientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfo.m; sourceTree = "<group>"; };
 		ED1A770C1A0D897500FEF54F /* PillBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1A770F1A0D897500FEF54F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ED1A77111A0D897500FEF54F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -222,6 +225,8 @@
 				ED15C9ED1A0F567F007E7BDC /* AddPatient.m */,
 				ED15C9EF1A0F5747007E7BDC /* TabBarController.h */,
 				ED15C9F01A0F5747007E7BDC /* TabBarController.m */,
+				ED15C9F21A0F5842007E7BDC /* PatientInfo.h */,
+				ED15C9F31A0F5842007E7BDC /* PatientInfo.m */,
 				ED1A772A1A0D897500FEF54F /* Images.xcassets */,
 				ED1A77161A0D897500FEF54F /* Supporting Files */,
 			);
@@ -379,6 +384,7 @@
 				ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */,
 				ED9782A11A0F3BD10058B428 /* PatientHome.m in Sources */,
 				ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */,
+				ED15C9F41A0F5842007E7BDC /* PatientInfo.m in Sources */,
 				ED15C9F11A0F5747007E7BDC /* TabBarController.m in Sources */,
 				ED1A77201A0D897500FEF54F /* AppDelegate.m in Sources */,
 				ED1A771C1A0D897500FEF54F /* main.m in Sources */,
