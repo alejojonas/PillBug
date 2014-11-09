@@ -168,6 +168,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED15C9FE1A0F5D5C007E7BDC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				ED1A77271A0D897500FEF54F /* Login.h */,
+				ED1A77281A0D897500FEF54F /* Login.m */,
+				ED15C9BC1A0EB5E5007E7BDC /* RegisterViewController.h */,
+				ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		ED15C9FF1A0F5D72007E7BDC /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				ED97829F1A0F3BD10058B428 /* PatientHome.h */,
+				ED9782A01A0F3BD10058B428 /* PatientHome.m */,
+				ED15C9FB1A0F5C2E007E7BDC /* PrescriptionInfo.h */,
+				ED15C9FC1A0F5C2E007E7BDC /* PrescriptionInfo.m */,
+			);
+			name = Patient;
+			sourceTree = "<group>";
+		};
+		ED15CA001A0F5D82007E7BDC /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				ED1A776A1A0D94F400FEF54F /* DoctorHome.h */,
+				ED1A776B1A0D94F400FEF54F /* DoctorHome.m */,
+				ED15C9EC1A0F567F007E7BDC /* AddPatient.h */,
+				ED15C9ED1A0F567F007E7BDC /* AddPatient.m */,
+				ED15C9EF1A0F5747007E7BDC /* TabBarController.h */,
+				ED15C9F01A0F5747007E7BDC /* TabBarController.m */,
+				ED15C9F21A0F5842007E7BDC /* PatientInfo.h */,
+				ED15C9F31A0F5842007E7BDC /* PatientInfo.m */,
+				ED15C9F51A0F594F007E7BDC /* PatientPrescription.h */,
+				ED15C9F61A0F594F007E7BDC /* PatientPrescription.m */,
+				ED15C9F81A0F59EA007E7BDC /* PrescriptionEditor.h */,
+				ED15C9F91A0F59EA007E7BDC /* PrescriptionEditor.m */,
+			);
+			name = Doctor;
+			sourceTree = "<group>";
+		};
 		ED1A77031A0D897500FEF54F = {
 			isa = PBXGroup;
 			children = (
@@ -217,31 +258,14 @@
 		ED1A77151A0D897500FEF54F /* PillBug */ = {
 			isa = PBXGroup;
 			children = (
+				ED15CA001A0F5D82007E7BDC /* Doctor */,
+				ED15C9FF1A0F5D72007E7BDC /* Patient */,
+				ED15C9FE1A0F5D5C007E7BDC /* Login */,
 				ED1A771E1A0D897500FEF54F /* AppDelegate.h */,
 				ED1A771F1A0D897500FEF54F /* AppDelegate.m */,
 				ED1A77211A0D897500FEF54F /* Main_iPhone.storyboard */,
 				ED1A77241A0D897500FEF54F /* Main_iPad.storyboard */,
 				ED9782A21A0F41380058B428 /* Images */,
-				ED1A77271A0D897500FEF54F /* Login.h */,
-				ED1A77281A0D897500FEF54F /* Login.m */,
-				ED15C9BC1A0EB5E5007E7BDC /* RegisterViewController.h */,
-				ED15C9BD1A0EB5E5007E7BDC /* RegisterViewController.m */,
-				ED97829F1A0F3BD10058B428 /* PatientHome.h */,
-				ED9782A01A0F3BD10058B428 /* PatientHome.m */,
-				ED15C9FB1A0F5C2E007E7BDC /* PrescriptionInfo.h */,
-				ED15C9FC1A0F5C2E007E7BDC /* PrescriptionInfo.m */,
-				ED1A776A1A0D94F400FEF54F /* DoctorHome.h */,
-				ED1A776B1A0D94F400FEF54F /* DoctorHome.m */,
-				ED15C9EC1A0F567F007E7BDC /* AddPatient.h */,
-				ED15C9ED1A0F567F007E7BDC /* AddPatient.m */,
-				ED15C9EF1A0F5747007E7BDC /* TabBarController.h */,
-				ED15C9F01A0F5747007E7BDC /* TabBarController.m */,
-				ED15C9F21A0F5842007E7BDC /* PatientInfo.h */,
-				ED15C9F31A0F5842007E7BDC /* PatientInfo.m */,
-				ED15C9F51A0F594F007E7BDC /* PatientPrescription.h */,
-				ED15C9F61A0F594F007E7BDC /* PatientPrescription.m */,
-				ED15C9F81A0F59EA007E7BDC /* PrescriptionEditor.h */,
-				ED15C9F91A0F59EA007E7BDC /* PrescriptionEditor.m */,
 				ED1A772A1A0D897500FEF54F /* Images.xcassets */,
 				ED1A77161A0D897500FEF54F /* Supporting Files */,
 			);
