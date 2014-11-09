@@ -54,7 +54,9 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 1){
-        [self performSegueWithIdentifier:@"confirmAdd" sender:self];
+        //[self performSegueWithIdentifier:@"confirmAdd" sender:self];
+        [self dismissModalViewControllerAnimated:YES];
+
         
     }
 }

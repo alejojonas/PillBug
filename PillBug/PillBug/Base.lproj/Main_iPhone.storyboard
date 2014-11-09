@@ -150,7 +150,6 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="IdW-dp-dFx" id="kCf-QY-2re"/>
-                        <segue destination="OKJ-l0-2A8" kind="modal" identifier="confirmAdd" id="Xgz-2y-Met"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyw-nO-cLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -174,7 +173,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="PATIENT INFO" id="LHp-wS-zLW">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="PYs-9v-gKX">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="PYs-9v-gKX">
                                             <connections>
                                                 <action selector="backBtn:" destination="iFL-8e-Ioy" id="cLA-NK-zne"/>
                                             </connections>
@@ -249,7 +248,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="PRESCRIPTIONS" id="hAC-io-jyE">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="au2-8w-JGt">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="au2-8w-JGt">
                                             <connections>
                                                 <action selector="backBtn:" destination="zdZ-h7-dU0" id="a49-V6-UU3"/>
                                             </connections>
@@ -453,7 +452,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dM0-j4-WQT"/>
         <segue reference="AEN-CB-GBP"/>
         <segue reference="SpS-ET-o8p"/>
     </inferredMetricsTieBreakers>
