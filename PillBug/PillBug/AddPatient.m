@@ -62,20 +62,39 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    PFObject *patientName = [mainArray objectAtIndex:indexPath.row];
+    PFObject *patient = [mainArray objectAtIndex:indexPath.row];
+    NSString *currentUserName = [[PFUser currentUser]username];
+    NSString *patientName = [patient objectForKey:@"patientName"];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"You have added" message:patientName delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
     
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Are you sure you want to add" message:[patientName objectForKey:@"patientName"] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"ClinicPatients"];
     
+    [retrievePatientNames whereKey:@"patientName" equalTo:patientName];
+    
+    
+    [retrievePatientNames getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if(!error){
+            [object addUniqueObject:currentUserName forKey:@"assignedDoctors"];
+            [object saveInBackground];
+        }
+    }];
+    
+     [tableView reloadData];
+
     [alertView show];
+
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
     if(buttonIndex == 1){
         //add to doctor home
         
         [self dismissViewControllerAnimated:YES completion:nil];
         
     }
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (void)didReceiveMemoryWarning

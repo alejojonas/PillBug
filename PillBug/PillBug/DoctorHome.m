@@ -24,22 +24,21 @@
     return self;
 }
 
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [self retrieveFromParse];
+}
+
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    
-    [tableView reloadData];
+    [self retrieveFromParse];
 }
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self retrieveFromParse];
-
-    // Do any additional setup after loading the view.
-    
-    //mainArray = [[NSArray alloc] initWithObjects:@"patient 1", @"patient 2", @"patient 3", @"patient 4", @"patient 5", nil];
+    [self retrieveFromParse];    
 }
 
 - (void) retrieveFromParse{
