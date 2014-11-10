@@ -144,9 +144,7 @@
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     
     [PFUser logOut];
-    
-    [self dismissModalViewControllerAnimated:YES];
-    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Sent to the delegate when the sign up attempt fails.

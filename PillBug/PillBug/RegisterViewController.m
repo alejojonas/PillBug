@@ -49,13 +49,14 @@
 - (IBAction)patientBtn:(id)sender {
     [[PFUser currentUser] setObject:@"patient" forKey:@"type"];
     [[PFUser currentUser] save];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (IBAction)doctorBtn:(id)sender {
     [[PFUser currentUser] setObject:@"doctor" forKey:@"type"];
     [[PFUser currentUser] save];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 @end

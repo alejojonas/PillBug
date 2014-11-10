@@ -73,7 +73,8 @@
 
 - (IBAction)logOutBtn:(id)sender {
     [PFUser logOut];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 @end
