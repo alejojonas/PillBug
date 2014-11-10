@@ -40,7 +40,13 @@
 }
 
 - (void) retrieveFromParse{
-    PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"ClinicPatients"];
+    NSString *currentUserName = [[PFUser currentUser]username];
+    
+    NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedDoctors", currentUserName];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
+    
+    PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"ClinicPatients" predicate:predicate];
     
     [retrievePatientNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
@@ -48,7 +54,6 @@
         }
         [tableView reloadData];
     }];
-    
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,7 +65,6 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PFObject *patientName = [mainArray objectAtIndex:indexPath.row];
-    NSLog(@"HI");
     
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Are you sure you want to add" message:[patientName objectForKey:@"patientName"] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     

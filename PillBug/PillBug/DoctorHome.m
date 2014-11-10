@@ -31,26 +31,54 @@
     return self;
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    [tableView reloadData];
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [self retrieveFromParse];
+
     // Do any additional setup after loading the view.
     
-    mainArray = [[NSArray alloc] initWithObjects:@"patient 1", @"patient 2", @"patient 3", @"patient 4", @"patient 5", nil];
+    //mainArray = [[NSArray alloc] initWithObjects:@"patient 1", @"patient 2", @"patient 3", @"patient 4", @"patient 5", nil];
 }
+
+- (void) retrieveFromParse{
+    NSString *currentUserName = [[PFUser currentUser]username];
+    
+    NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedDoctors", currentUserName];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
+    
+    PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"ClinicPatients" predicate:predicate];
+    
+    [retrievePatientNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+            mainArray = [[NSArray alloc]initWithArray:objects];
+        }
+        [tableView reloadData];
+    }];
+}
+
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [mainArray count];
 }
 
-
-
-
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
+    /*UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
     cell.textLabel.text = [mainArray objectAtIndex:indexPath.row];
+    return cell;*/
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
+    PFObject  *tempObject = [mainArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tempObject objectForKey:@"patientName"];
     return cell;
 }
 
