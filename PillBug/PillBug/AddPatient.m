@@ -65,7 +65,7 @@
     PFObject *patient = [mainArray objectAtIndex:indexPath.row];
     NSString *patientName = [patient objectForKey:@"patientName"];
 
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Do you want to add" message:patientName delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Add" message:patientName delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     alertView.tag = indexPath.row;
     [alertView show];
 
@@ -77,11 +77,6 @@
     NSString *patientName = [patient objectForKey:@"patientName"];
     
     if(buttonIndex == 1){
-        //add to doctor home
-        
-       
-        
-        
         PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"ClinicPatients"];
         
         [retrievePatientNames whereKey:@"patientName" equalTo:patientName];
@@ -95,9 +90,9 @@
         }];
         
         [tableView reloadData];
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
 
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -24,6 +24,10 @@
     return self;
 }
 
+- (void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+}
+
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     [self retrieveFromParse];
@@ -76,17 +80,36 @@
     CGPoint p = [gestureRecognizer locationInView:tableView];
     NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:p];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
     PFObject  *tempObject = [mainArray objectAtIndex:indexPath.row];
     NSString *patientName = [tempObject objectForKey:@"patientName"];
     
-      UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"You have removed" message:patientName delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+      UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Remove" message:patientName delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        
     }
     else if (gestureRecognizer.state == UIGestureRecognizerStateBegan){
         [alertView show];
+    }
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    PFObject *patient = [mainArray objectAtIndex:alertView.tag];
+    NSString *currentUserName = [[PFUser currentUser]username];
+    NSString *patientName = [patient objectForKey:@"patientName"];
+    
+    if(buttonIndex == 1){
+        PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"ClinicPatients"];
+        
+        [retrievePatientNames whereKey:@"patientName" equalTo:patientName];
+        
+        
+        [retrievePatientNames getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if(!error){
+                [object removeObject:currentUserName forKey:@"assignedDoctors"];
+                [object saveInBackground];
+                [self viewDidLoad];
+            }
+        }];
     }
 }
 
