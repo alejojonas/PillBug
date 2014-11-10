@@ -16,5 +16,6 @@
     NSArray * mainArray;
 }
 - (IBAction)backBtn:(id)sender;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

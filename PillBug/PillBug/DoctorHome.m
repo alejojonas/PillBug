@@ -44,9 +44,7 @@
 
 - (void) retrieveFromParse{
     NSString *currentUserName = [[PFUser currentUser]username];
-    
-    NSLog(currentUserName);
-    
+        
     NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedDoctors", currentUserName];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];

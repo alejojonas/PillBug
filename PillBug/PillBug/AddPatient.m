@@ -42,11 +42,9 @@
 - (void) retrieveFromParse{
     NSString *currentUserName = [[PFUser currentUser]username];
     
-    NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedDoctors", currentUserName];
+    PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"ClinicPatients"];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
-    
-    PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"ClinicPatients" predicate:predicate];
+    [retrievePatientNames whereKey:@"assignedDoctors" notEqualTo:currentUserName];
     
     [retrievePatientNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
@@ -73,6 +71,8 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 1){
+        //add to doctor home
+        
         [self dismissViewControllerAnimated:YES completion:nil];
         
     }
