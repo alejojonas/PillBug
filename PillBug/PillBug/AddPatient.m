@@ -59,11 +59,10 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *patientName = [mainArray objectAtIndex:indexPath.row];
+    PFObject *patientName = [mainArray objectAtIndex:indexPath.row];
+    NSLog(@"HI");
     
-    
-    
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Are you sure you want to add" message:patientName delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Are you sure you want to add" message:[patientName objectForKey:@"patientName"] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     
     [alertView show];
 }
