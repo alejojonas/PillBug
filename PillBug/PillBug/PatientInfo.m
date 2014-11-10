@@ -7,12 +7,15 @@
 //
 
 #import "PatientInfo.h"
+#import "TabBarController.h";
 
 @interface PatientInfo ()
 
 @end
 
 @implementation PatientInfo
+
+@synthesize patientUsername;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +29,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"patientInfo");
+    TabBarController *tabBar = (TabBarController *)self.tabBarController;
+    self.patientUsername = tabBar.patientUsername;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"ClinicPatients"];
+    [query whereKey:@"username" equalTo:self.patientUsername];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        NSString *name = [object objectForKey:@"patientName"];
+        self.nameLabel.text = name;
+        NSString *dob = [object objectForKey:@"dateOfBirth"];
+        self.dobLabel.text = dob;
+        NSString *phoneNumber = [object objectForKey:@"phoneNumber"];
+        self.numberLabel.text = phoneNumber;
+    }];
+    
+    
+
     // Do any additional setup after loading the view.
 }
 

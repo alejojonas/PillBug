@@ -10,4 +10,6 @@
 
 @interface TabBarController : UITabBarController
 
+
+@property (nonatomic, strong) NSString *patientUsername;
 @end

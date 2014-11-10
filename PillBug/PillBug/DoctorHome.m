@@ -7,6 +7,7 @@
 //
 
 #import "DoctorHome.h"
+#import "TabBarController.h"
 
 @interface DoctorHome ()
 
@@ -124,6 +125,20 @@
     cell.textLabel.text = [tempObject objectForKey:@"patientName"];
     return cell;
 }
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"selectCell"]){
+        NSIndexPath *indexPath = [tableView indexPathForSelectedRow];
+        
+        PFObject *patient = [mainArray objectAtIndex:indexPath.row];
+        NSString *getPatientUsername = [patient objectForKey:@"username"];
+        
+        TabBarController *tabBar = [segue destinationViewController];
+        [tabBar setPatientUsername:getPatientUsername];
+    }
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

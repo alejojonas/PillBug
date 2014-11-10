@@ -7,12 +7,15 @@
 //
 
 #import "PatientPrescription.h"
+#import "TabBarController.h";
 
 @interface PatientPrescription ()
 
 @end
 
 @implementation PatientPrescription
+
+@synthesize patientUsername;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"patientPrescription");
+    TabBarController *tabBar = (TabBarController *)self.tabBarController;
+    self.patientUsername = tabBar.patientUsername;
     
     mainArray = [[NSArray alloc] initWithObjects:@"prescription 1", @"prescription 2", @"prescription 3", @"prescription 4", @"prescription 5", nil];
     // Do any additional setup after loading the view.

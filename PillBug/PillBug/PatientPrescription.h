@@ -16,4 +16,7 @@
 }
 - (IBAction)backBtn:(id)sender;
 
+@property (nonatomic, strong) NSString *patientUsername;
+
+
 @end

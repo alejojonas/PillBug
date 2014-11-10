@@ -31,8 +31,6 @@
     // Do any additional setup after loading the view.
     [self retrieveFromParse];
     
-    //mainArray = [[NSArray alloc] initWithObjects:@"patient 6", @"patient 7", @"patient 8", @"patient 9", @"patient 10", nil];
-    
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
