@@ -24,9 +24,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    NSLog(@"viewDidLoad");
-    
-    
 }
 
 /*- (void)viewWillAppear:(BOOL)animated {
@@ -72,11 +69,9 @@
         
         
         if([type isEqualToString:@"patient"]){
-            NSLog(@"PATIENT");
             [self performSegueWithIdentifier:@"patient" sender:self];
             
         } else if ([type isEqualToString:@"doctor"]){
-            NSLog(@"DOCTOR");
             [self performSegueWithIdentifier:@"doctor" sender:self];
         } else {
             [self performSegueWithIdentifier:@"unregistered" sender:self];

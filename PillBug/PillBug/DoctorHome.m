@@ -38,13 +38,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self retrieveFromParse];    
+    
+    [self retrieveFromParse];
+  
+
+    UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
+    lpHandler.minimumPressDuration = 1; //seconds
+    [tableView addGestureRecognizer:lpHandler];
+    
 }
 
 - (void) retrieveFromParse{
-    NSString *currentUserName = [[PFUser currentUser]username];
+    NSString *currentUser = [[PFUser currentUser]username];
         
-    NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedDoctors", currentUserName];
+    NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedDoctors", currentUser];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
     
@@ -59,14 +66,35 @@
 }
 
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+}
+
+-(void)longPressHandler:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:tableView];
+    NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:p];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
+    PFObject  *tempObject = [mainArray objectAtIndex:indexPath.row];
+    NSString *patientName = [tempObject objectForKey:@"patientName"];
+    
+      UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"You have removed" message:patientName delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        
+    }
+    else if (gestureRecognizer.state == UIGestureRecognizerStateBegan){
+        [alertView show];
+    }
+}
+
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [mainArray count];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
-    cell.textLabel.text = [mainArray objectAtIndex:indexPath.row];
-    return cell;*/
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
     PFObject  *tempObject = [mainArray objectAtIndex:indexPath.row];
@@ -79,6 +107,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
  #pragma mark - Navigation
