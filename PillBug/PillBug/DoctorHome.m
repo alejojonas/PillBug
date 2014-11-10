@@ -14,13 +14,6 @@
 
 @implementation DoctorHome
 
-/*- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
- CGRect frame = self.addPatient.frame;
- frame.origin.y = self.navBar.frame.size.height + self.tableView.frame.size.height + self.searchBar.frame.size.height;
- self.addPatient.frame = frame;
- 
- [self.view bringSubviewToFront:self.addPatient];
- }*/
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,6 +44,8 @@
 
 - (void) retrieveFromParse{
     NSString *currentUserName = [[PFUser currentUser]username];
+    
+    NSLog(currentUserName);
     
     NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedDoctors", currentUserName];
     
