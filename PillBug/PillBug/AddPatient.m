@@ -15,6 +15,7 @@
 
 @implementation AddPatient
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,17 +29,32 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    mainArray = [[NSArray alloc] initWithObjects:@"patient 6", @"patient 7", @"patient 8", @"patient 9", @"patient 10", nil];
+    [self retrieveFromParse];
+    
+    //mainArray = [[NSArray alloc] initWithObjects:@"patient 6", @"patient 7", @"patient 8", @"patient 9", @"patient 10", nil];
+    
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [mainArray count];
 }
 
+- (void) retrieveFromParse{
+    PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"ClinicPatients"];
+    
+    [retrievePatientNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+            mainArray = [[NSArray alloc]initWithArray:objects];
+        }
+        [tableView reloadData];
+    }];
+    
+}
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
-    cell.textLabel.text = [mainArray objectAtIndex:indexPath.row];
+    PFObject  *tempObject = [mainArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tempObject objectForKey:@"patientName"];
     return cell;
 }
 

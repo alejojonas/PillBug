@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 #import <Parse/PFLogInViewController.h>
 
 @interface AddPatient : UIViewController <UITabBarDelegate, UITableViewDataSource, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>{
