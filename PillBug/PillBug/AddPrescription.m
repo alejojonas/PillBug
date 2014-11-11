@@ -60,6 +60,40 @@
     return cell;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PFObject *drugs = [mainArray objectAtIndex:indexPath.row];
+    NSString *drugName = [drugs objectForKey:@"drugName"];
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Add" message:drugName delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    alertView.tag = indexPath.row;
+    [alertView show];
+    
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    PFObject *drugs = [mainArray objectAtIndex:alertView.tag];
+    NSString *currentUserName = self.patientUsername;
+    NSString *drugName = [drugs objectForKey:@"drugName"];
+    
+    if(buttonIndex == 1){
+        PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"Drugs"];
+        
+        [retrievePatientNames whereKey:@"drugName" equalTo:drugName];
+        
+        
+        [retrievePatientNames getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if(!error){
+                [object addUniqueObject:currentUserName forKey:@"assignedPatients"];
+                [object saveInBackground];
+            }
+        }];
+        
+        [tableView reloadData];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+}
+
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [mainArray count];
 }

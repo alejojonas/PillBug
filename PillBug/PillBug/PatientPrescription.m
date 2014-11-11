@@ -42,6 +42,8 @@
     return [mainArray count];
 }
 
+
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
     cell.textLabel.text = [mainArray objectAtIndex:indexPath.row];
