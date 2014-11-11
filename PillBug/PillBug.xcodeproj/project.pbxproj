@@ -46,6 +46,7 @@
 		ED1A77641A0D8AAC00FEF54F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77631A0D8AAC00FEF54F /* StoreKit.framework */; };
 		ED1A77661A0D8AB600FEF54F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A77651A0D8AB600FEF54F /* SystemConfiguration.framework */; };
 		ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1A776B1A0D94F400FEF54F /* DoctorHome.m */; };
+		ED1EA5AC1A1182FD00EA10C2 /* AddPrescription.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1EA5AB1A1182FD00EA10C2 /* AddPrescription.m */; };
 		ED9782951A0F3ACE0058B428 /* Advil.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782931A0F3ACE0058B428 /* Advil.jpg */; };
 		ED9782961A0F3ACE0058B428 /* AdvilBottle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782941A0F3ACE0058B428 /* AdvilBottle.jpg */; };
 		ED9782991A0F3ADF0058B428 /* Ibuprofen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782971A0F3ADF0058B428 /* Ibuprofen.jpg */; };
@@ -118,6 +119,8 @@
 		ED1A77651A0D8AB600FEF54F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ED1A776A1A0D94F400FEF54F /* DoctorHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorHome.h; sourceTree = "<group>"; };
 		ED1A776B1A0D94F400FEF54F /* DoctorHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorHome.m; sourceTree = "<group>"; };
+		ED1EA5AA1A1182FD00EA10C2 /* AddPrescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPrescription.h; sourceTree = "<group>"; };
+		ED1EA5AB1A1182FD00EA10C2 /* AddPrescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPrescription.m; sourceTree = "<group>"; };
 		ED9782931A0F3ACE0058B428 /* Advil.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Advil.jpg; sourceTree = "<group>"; };
 		ED9782941A0F3ACE0058B428 /* AdvilBottle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AdvilBottle.jpg; sourceTree = "<group>"; };
 		ED9782971A0F3ADF0058B428 /* Ibuprofen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ibuprofen.jpg; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				ED15C9F31A0F5842007E7BDC /* PatientInfo.m */,
 				ED15C9F51A0F594F007E7BDC /* PatientPrescription.h */,
 				ED15C9F61A0F594F007E7BDC /* PatientPrescription.m */,
+				ED1EA5AA1A1182FD00EA10C2 /* AddPrescription.h */,
+				ED1EA5AB1A1182FD00EA10C2 /* AddPrescription.m */,
 				ED15C9F81A0F59EA007E7BDC /* PrescriptionEditor.h */,
 				ED15C9F91A0F59EA007E7BDC /* PrescriptionEditor.m */,
 			);
@@ -425,6 +430,7 @@
 				ED15C9F71A0F594F007E7BDC /* PatientPrescription.m in Sources */,
 				ED9782A11A0F3BD10058B428 /* PatientHome.m in Sources */,
 				ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */,
+				ED1EA5AC1A1182FD00EA10C2 /* AddPrescription.m in Sources */,
 				ED15C9F41A0F5842007E7BDC /* PatientInfo.m in Sources */,
 				ED15C9F11A0F5747007E7BDC /* TabBarController.m in Sources */,
 				ED1A77201A0D897500FEF54F /* AppDelegate.m in Sources */,

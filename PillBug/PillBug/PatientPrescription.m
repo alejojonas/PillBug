@@ -8,6 +8,7 @@
 
 #import "PatientPrescription.h"
 #import "TabBarController.h";
+#import "AddPrescription.h";
 
 @interface PatientPrescription ()
 
@@ -45,6 +46,13 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
     cell.textLabel.text = [mainArray objectAtIndex:indexPath.row];
     return cell;
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"addPrescription"]) {
+        AddPrescription *destView = segue.destinationViewController;
+        destView.patientUsername = self.patientUsername;
+    }
 }
 
 - (void)didReceiveMemoryWarning
