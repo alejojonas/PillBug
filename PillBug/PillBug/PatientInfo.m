@@ -29,7 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"patientInfo");
     TabBarController *tabBar = (TabBarController *)self.tabBarController;
     self.patientUsername = tabBar.patientUsername;
     
