@@ -7,8 +7,9 @@
 //
 
 #import "PatientPrescription.h"
-#import "TabBarController.h";
-#import "AddPrescription.h";
+#import "TabBarController.h"
+#import "AddPrescription.h"
+#import <Parse/Parse.h>
 
 @interface PatientPrescription ()
 
@@ -27,26 +28,106 @@
     return self;
 }
 
+- (void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [self retrieveFromParse];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self retrieveFromParse];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"patientPrescription");
     TabBarController *tabBar = (TabBarController *)self.tabBarController;
     self.patientUsername = tabBar.patientUsername;
     
-    mainArray = [[NSArray alloc] initWithObjects:@"prescription 1", @"prescription 2", @"prescription 3", @"prescription 4", @"prescription 5", nil];
-    // Do any additional setup after loading the view.
+    [self retrieveFromParse];
+    
+    
+    UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
+    lpHandler.minimumPressDuration = 1; //seconds
+    [tableView addGestureRecognizer:lpHandler];
+    
+}
+
+- (void) retrieveFromParse{
+    NSString *currentUser = self.patientUsername;
+    
+    NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedPatients", currentUser];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
+    
+    PFQuery *retrieveDrugNames = [PFQuery queryWithClassName:@"Drugs" predicate:predicate];
+    
+    [retrieveDrugNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+            mainArray = [[NSArray alloc]initWithArray:objects];
+        }
+        [tableView reloadData];
+    }];
+}
+
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+}
+
+-(void)longPressHandler:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:tableView];
+    NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:p];
+    
+    PFObject  *tempObject = [mainArray objectAtIndex:indexPath.row];
+    NSString *drugName = [tempObject objectForKey:@"drugName"];
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Remove" message:drugName delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+    }
+    else if (gestureRecognizer.state == UIGestureRecognizerStateBegan){
+        [alertView show];
+    }
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    PFObject *drugs = [mainArray objectAtIndex:alertView.tag];
+    NSString *currentUserName = self.patientUsername;
+    NSString *drugName = [drugs objectForKey:@"drugName"];
+    
+    if(buttonIndex == 1){
+        PFQuery *retrieveDrugNames = [PFQuery queryWithClassName:@"Drugs"];
+        
+        [retrieveDrugNames whereKey:@"drugName" equalTo:drugName];
+        
+        
+        [retrieveDrugNames getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if(!error){
+                [object removeObject:currentUserName forKey:@"assignedPatients"];
+                [object saveInBackground];
+                [self viewDidLoad];
+            }
+        }];
+    }
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [mainArray count];
 }
 
-
-
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thisCell"];
-    cell.textLabel.text = [mainArray objectAtIndex:indexPath.row];
+    PFObject  *tempObject = [mainArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tempObject objectForKey:@"drugName"];
     return cell;
 }
 
