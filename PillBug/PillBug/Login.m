@@ -57,7 +57,6 @@
         
         logInViewController.fields = PFLogInFieldsUsernameAndPassword
         | PFLogInFieldsLogInButton
-        | PFLogInFieldsSignUpButton
         | PFLogInFieldsPasswordForgotten;
 
         // Present the log in view controller
