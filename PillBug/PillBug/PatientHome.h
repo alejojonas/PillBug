@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/PFLogInViewController.h>
+#import <Parse/Parse.h>
 
 
 @interface PatientHome : UITableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>

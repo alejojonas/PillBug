@@ -14,13 +14,16 @@
 //
 
 @interface PatientHome (){
-    NSArray *demoPatientData; //DATA CURRENTLY HARD CODE FILLED
+   // NSArray *demoPatientData; //DATA CURRENTLY HARD CODE FILLED
+    NSArray *mainArray;
+
 }
 
 
 @end
 
 @implementation PatientHome
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,9 +37,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    demoPatientData= @[@"Ibuprofen", @"Tylenol", @"Advil",@"Ibuprofen",@"Tylenol",@"Advil"]; //HARD CODED PATIENT DATA
+    //demoPatientData= @[@"Ibuprofen", @"Tylenol", @"Advil",@"Ibuprofen",@"Tylenol",@"Advil"]; //HARD CODED PATIENT DATA
     
-    NSLog(@"PATIENT HOME SCREEN");
+    [self retrieveFromParse];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,6 +47,24 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+- (void) retrieveFromParse{
+    NSString *currentUser = [[PFUser currentUser] username];
+    
+    NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedPatients", currentUser];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
+    
+    PFQuery *retrieveDrugNames = [PFQuery queryWithClassName:@"Drugs" predicate:predicate];
+    
+    [retrieveDrugNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+            mainArray = [[NSArray alloc]initWithArray:objects];
+        }
+        [self.tableView reloadData];
+    }];
+}
+
 
 - (NSString *)getImageFilename:(NSString *)demoPatientData
 {
@@ -54,6 +75,24 @@
     return imageFilename;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+}
+
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [mainArray count];
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PatientCell"];
+    PFObject  *tempObject = [mainArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tempObject objectForKey:@"drugName"];
+    return cell;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -62,7 +101,7 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
@@ -92,6 +131,7 @@
     return cell;
 }
 
+ */
 
 /*
 // Override to support conditional editing of the table view.
