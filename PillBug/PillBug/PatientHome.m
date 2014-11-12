@@ -20,6 +20,8 @@
 }
 
 
+- (IBAction)buttonPressed:(id)sender;
+
 @end
 
 @implementation PatientHome
@@ -186,5 +188,19 @@
     [PFUser logOut];    
     [self dismissViewControllerAnimated:YES completion:nil];
 
+}
+- (IBAction)buttonPressed:(id)sender
+{
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
+    localNotification.alertBody = @"Take your damn pills!";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.repeatInterval = NSMinuteCalendarUnit;
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    
+    
 }
 @end
