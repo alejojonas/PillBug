@@ -8,6 +8,7 @@
 
 #import "PatientHome.h"
 #import "Login.h"
+#import "PrescriptionInfo.h"
 
 //Patient Data currently hard coded in viewDidLoad. Each medicine must have a matching jpg
 //ie if "Ibufrofen" in list of medicine, "Ibuprofen.jpg" must exist.
@@ -25,6 +26,9 @@
 @end
 
 @implementation PatientHome
+
+@synthesize tempDrugName;
+
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -79,7 +83,9 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    PFObject *drugs = [mainArray objectAtIndex:indexPath.row];
+    NSString *drugNameString = [drugs objectForKey:@"drugName"];
+    self.tempDrugName = drugNameString;
 }
 
 
@@ -183,6 +189,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"prescriptionDetail"]) {
+        PrescriptionInfo *destView = segue.destinationViewController;
+        destView.drugName = self.tempDrugName;
+    }
+}
 
 - (IBAction)LogOutBtn:(id)sender {
     [PFUser logOut];    
@@ -203,4 +215,5 @@
     
     
 }
+
 @end

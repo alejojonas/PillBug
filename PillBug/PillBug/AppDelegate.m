@@ -23,7 +23,7 @@
     
     
     
-    if([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
+    /*if([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
     }
@@ -34,7 +34,7 @@
     {
         [application cancelAllLocalNotifications];
     }
-    
+    */
     
     return YES;
 }

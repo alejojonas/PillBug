@@ -14,6 +14,10 @@
 
 @implementation PrescriptionInfo
 
+@synthesize drugName;
+@synthesize prescriptionNameLabel;
+@synthesize drugCategoryLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +31,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    PFQuery *query = [PFQuery queryWithClassName:@"Drugs"];
+    /*[query whereKey:@"drugName" equalTo:drugName];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        NSString *name = [object objectForKey:@"drugName"];
+        self.prescriptionNameLabel.text = name;
+        NSString *catagory = [object objectForKey:@"drugCatagory"];
+        self.drugCategoryLabel.text = catagory;
+        
+    }];*/
+    
 }
 
 - (void)didReceiveMemoryWarning

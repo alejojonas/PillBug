@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface PrescriptionInfo : UIViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backBtn;
+@property NSString* drugName;
+@property (weak, nonatomic) IBOutlet UILabel *prescriptionNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *drugCategoryLabel;
 
 @end

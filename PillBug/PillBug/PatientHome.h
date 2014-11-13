@@ -14,5 +14,7 @@
 @interface PatientHome : UITableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 - (IBAction)LogOutBtn:(id)sender;
 
+@property NSString *tempDrugName;
+- (IBAction)buttonPressed:(id)sender;
 
 @end
