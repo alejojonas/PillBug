@@ -38,11 +38,11 @@
 }
 
 - (void) retrieveFromParse{
-    NSString *currentUserName = self.patientUsername;
+    NSString *patientName = self.patientUsername;
     
     PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"Drugs"];
     
-    [retrievePatientNames whereKey:@"assignedPatients" notEqualTo:currentUserName];
+    [retrievePatientNames whereKey:@"assignedPatients" notEqualTo:patientName];
     
     [retrievePatientNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
@@ -72,7 +72,7 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     PFObject *drugs = [mainArray objectAtIndex:alertView.tag];
-    NSString *currentUserName = self.patientUsername;
+    NSString *patientName = self.patientUsername;
     NSString *drugName = [drugs objectForKey:@"drugName"];
     
     if(buttonIndex == 1){
@@ -83,12 +83,21 @@
         
         [retrievePatientNames getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if(!error){
-                [object addUniqueObject:currentUserName forKey:@"assignedPatients"];
+                [object addUniqueObject:patientName forKey:@"assignedPatients"];
                 [object saveInBackground];
             }
         }];
         
-        [tableView reloadData];
+        //add row to prescription class
+        
+        PFObject *newPrescription = [PFObject objectWithClassName:@"Prescriptions"];
+        newPrescription[@"drugName"] = drugName;
+        newPrescription[@"patientUsername"] = patientName;
+        newPrescription[@"prescriberName"] = [[PFUser currentUser] username];
+        [newPrescription saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            
+        }];
+        
         [self dismissViewControllerAnimated:YES completion:nil];
         
     }

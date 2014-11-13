@@ -59,20 +59,21 @@
 }
 
 - (void) retrieveFromParse{
-    NSString *currentUser = self.patientUsername;
     
-    NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedPatients", currentUser];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
+    NSString *patientName = self.patientUsername;
     
-    PFQuery *retrieveDrugNames = [PFQuery queryWithClassName:@"Drugs" predicate:predicate];
+    PFQuery *retrievePatientNames = [PFQuery queryWithClassName:@"Prescriptions"];
     
-    [retrieveDrugNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [retrievePatientNames whereKey:@"patientUsername" equalTo:patientName];
+    
+    [retrievePatientNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             mainArray = [[NSArray alloc]initWithArray:objects];
         }
         [tableView reloadData];
     }];
+    
 }
 
 
@@ -104,15 +105,28 @@
     NSString *drugName = [drugs objectForKey:@"drugName"];
     
     if(buttonIndex == 1){
-        PFQuery *retrieveDrugNames = [PFQuery queryWithClassName:@"Drugs"];
+        PFQuery *retrieveDrug = [PFQuery queryWithClassName:@"Drugs"];
         
-        [retrieveDrugNames whereKey:@"drugName" equalTo:drugName];
+        [retrieveDrug whereKey:@"drugName" equalTo:drugName];
         
         
-        [retrieveDrugNames getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        [retrieveDrug getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if(!error){
                 [object removeObject:currentUserName forKey:@"assignedPatients"];
                 [object saveInBackground];
+            }
+        }];
+        
+        PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+        
+        [retrievePrescription whereKey:@"drugName" equalTo:drugName];
+        
+        
+        [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if(!error){
+                [object deleteInBackground];
+                [object saveInBackground];
+                
                 [self viewDidLoad];
             }
         }];
