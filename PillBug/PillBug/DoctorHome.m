@@ -170,6 +170,8 @@
  */
 
 - (IBAction)logOutBtn:(id)sender {
+    
+    
     [PFUser logOut];
     [self dismissViewControllerAnimated:YES completion:nil];
 

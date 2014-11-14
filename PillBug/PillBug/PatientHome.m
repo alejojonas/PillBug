@@ -199,10 +199,24 @@
 }
 
 - (IBAction)LogOutBtn:(id)sender {
-    [PFUser logOut];    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Logging out" message:@"You will no longer recieve doctor updates" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:@"Cancel", nil];
+    
+    [alertView show];
+    
+   
 
 }
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    
+    if(buttonIndex == 0){
+        [PFUser logOut];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+    
+}
+
 - (IBAction)buttonPressed:(id)sender
 {
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
