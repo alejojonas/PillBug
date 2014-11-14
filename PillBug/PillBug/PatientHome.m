@@ -15,9 +15,7 @@
 //
 
 @interface PatientHome (){
-   // NSArray *demoPatientData; //DATA CURRENTLY HARD CODE FILLED
     NSArray *mainArray;
-
 }
 
 
@@ -28,7 +26,6 @@
 @implementation PatientHome
 
 @synthesize tempDrugName;
-
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -43,15 +40,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //demoPatientData= @[@"Ibuprofen", @"Tylenol", @"Advil",@"Ibuprofen",@"Tylenol",@"Advil"]; //HARD CODED PATIENT DATA
     
     [self retrieveFromParse];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void) retrieveFromParse{

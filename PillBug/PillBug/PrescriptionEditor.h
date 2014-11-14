@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface PrescriptionEditor : UIViewController
+@interface PrescriptionEditor : UIViewController 
 
 - (IBAction)backBtn:(id)sender;
 
@@ -21,6 +22,11 @@
 - (IBAction)saturdayBtn:(id)sender;
 
 - (IBAction)saveBtn:(id)sender;
+
+@property (nonatomic, strong) NSString *drugName;
+@property (nonatomic, strong) NSString *patientUsername;
+@property (nonatomic, strong) NSArray *dayArray;
+
 
 @property (weak, nonatomic) IBOutlet UIButton *sunday;
 @property (weak, nonatomic) IBOutlet UIButton *monday;

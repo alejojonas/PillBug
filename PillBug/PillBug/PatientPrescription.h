@@ -17,6 +17,8 @@
 - (IBAction)backBtn:(id)sender;
 
 @property (nonatomic, strong) NSString *patientUsername;
+@property (nonatomic, strong) NSString *tempDrugName;
+
 - (IBAction)addPatient:(id)sender;
 
 

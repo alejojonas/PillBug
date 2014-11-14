@@ -21,6 +21,8 @@
 @synthesize thursday;
 @synthesize friday;
 @synthesize saturday;
+@synthesize dayArray;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +36,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    
+    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+    
+    [retrievePrescription whereKey:@"patientUsername" equalTo:self.patientUsername];
+    
+    [retrievePrescription whereKey:@"drugName" equalTo:self.drugName];
+    
+    
+    [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if(!error){
+            dayArray = [object objectForKey:@"days"];
+            [sunday setSelected:[[dayArray objectAtIndex:0]boolValue]];
+            [monday setSelected:[[dayArray objectAtIndex:1]boolValue]];
+            [tuesday setSelected:[[dayArray objectAtIndex:2]boolValue]];
+            [wednesday setSelected:[[dayArray objectAtIndex:3]boolValue]];
+            [thursday setSelected:[[dayArray objectAtIndex:4]boolValue]];
+            [friday setSelected:[[dayArray objectAtIndex:5]boolValue]];
+            [saturday setSelected:[[dayArray objectAtIndex:6]boolValue]];
+
+
+        }
+    }];
+    
+  //  [sunday setSelected:[];
     // Do any additional setup after loading the view.
 }
 
@@ -133,6 +158,27 @@
 }
 
 - (IBAction)saveBtn:(id)sender {
+    
+    //save the days
+    
+    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+    
+    [retrievePrescription whereKey:@"patientUsername" equalTo:self.patientUsername];
+    
+    [retrievePrescription whereKey:@"drugName" equalTo:self.drugName];
+    
+    
+    [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if(!error){
+            [object setObject: @[ @(sunday.selected), @(monday.selected), @(tuesday.selected), @(wednesday.selected), @(thursday.selected), @(friday.selected), @(saturday.selected) ]forKey:@"days"];
+            
+            
+            [object saveInBackground];
+        }
+    }];
+    
+    
+    
     
     [self dismissViewControllerAnimated:YES completion:nil];
 

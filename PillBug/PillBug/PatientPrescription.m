@@ -9,6 +9,7 @@
 #import "PatientPrescription.h"
 #import "TabBarController.h"
 #import "AddPrescription.h"
+#import "PrescriptionEditor.h"
 #import <Parse/Parse.h>
 
 @interface PatientPrescription ()
@@ -84,6 +85,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+   
     
 }
 
@@ -162,7 +164,20 @@
         AddPrescription *destView = segue.destinationViewController;
         destView.patientUsername = self.patientUsername;
     }
+    if ([segue.identifier isEqualToString:@"editPrescription"]) {
+        NSIndexPath *path = [tableView indexPathForSelectedRow];
+        PFObject *drugs = [mainArray objectAtIndex:path.row];
+        NSString *drugNameString = [drugs objectForKey:@"drugName"];
+        PrescriptionEditor *destView = segue.destinationViewController;
+
+        destView.drugName = drugNameString;
+        destView.patientUsername = self.patientUsername;
+        
+    }
 }
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
