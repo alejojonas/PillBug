@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface PrescriptionEditor : UIViewController 
+@interface PrescriptionEditor : UIViewController <UITabBarDelegate, UITableViewDataSource> {
+    IBOutlet UITableView *tableView;
+}
 
 - (IBAction)backBtn:(id)sender;
 
