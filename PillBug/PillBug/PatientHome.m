@@ -57,13 +57,12 @@
 - (void) retrieveFromParse{
     NSString *currentUser = [[PFUser currentUser] username];
     
-    NSString *predicateString = [NSString stringWithFormat:@"'%@' IN assignedPatients", currentUser];
+    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
+    [retrievePrescription whereKey:@"patientUsername" equalTo:currentUser];
     
-    PFQuery *retrieveDrugNames = [PFQuery queryWithClassName:@"Drugs" predicate:predicate];
-    
-    [retrieveDrugNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [retrievePrescription findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             mainArray = [[NSArray alloc]initWithArray:objects];
         }

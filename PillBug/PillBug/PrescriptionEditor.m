@@ -14,6 +14,14 @@
 
 @implementation PrescriptionEditor
 
+@synthesize sunday;
+@synthesize monday;
+@synthesize tuesday;
+@synthesize wednesday;
+@synthesize thursday;
+@synthesize friday;
+@synthesize saturday;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
     // Do any additional setup after loading the view.
 }
 
@@ -47,7 +56,86 @@
  */
 
 - (IBAction)backBtn:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Any changes made will not be saved" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Cancel", nil];
+    
+    [alertView show];
+    
+
+    
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+ 
+    
+    if(buttonIndex == 0){
+        [self dismissViewControllerAnimated:YES completion:nil];
+       
+    }
+    
 
 }
+
+- (IBAction)sundayBtn:(id)sender {
+    if(self.sunday.selected == NO){
+        [self.sunday setSelected:YES];
+    } else {
+        [self.sunday setSelected:NO];
+    }
+}
+
+- (IBAction)mondayBtn:(id)sender {
+    if(self.monday.selected == NO){
+        [self.monday setSelected:YES];
+    } else {
+        [self.monday setSelected:NO];
+    }
+}
+
+- (IBAction)tuesdayBtn:(id)sender {
+    if(self.tuesday.selected == NO){
+        [self.tuesday setSelected:YES];
+    } else {
+        [self.tuesday setSelected:NO];
+    }
+}
+
+- (IBAction)wednesdayBtn:(id)sender {
+    if(self.wednesday.selected == NO){
+        [self.wednesday setSelected:YES];
+    } else {
+        [self.wednesday setSelected:NO];
+    }
+}
+
+- (IBAction)thursdayBtn:(id)sender {
+    if(self.thursday.selected == NO){
+        [self.thursday setSelected:YES];
+    } else {
+        [self.thursday setSelected:NO];
+    }
+}
+
+- (IBAction)fridayBtn:(id)sender {
+    if(self.friday.selected == NO){
+        [self.friday setSelected:YES];
+    } else {
+        [self.friday setSelected:NO];
+    }
+}
+
+- (IBAction)saturdayBtn:(id)sender {
+    if(self.saturday.selected == NO){
+        [self.saturday setSelected:YES];
+    } else {
+        [self.saturday setSelected:NO];
+    }
+}
+
+- (IBAction)saveBtn:(id)sender {
+}
+
+
+
+
 @end

@@ -65,8 +65,9 @@
     [retrievePatientNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             mainArray = [[NSArray alloc]initWithArray:objects];
+            [tableView reloadData];
+
         }
-        [tableView reloadData];
     }];
 }
 
@@ -87,9 +88,11 @@
       UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Remove" message:patientName delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+
     }
     else if (gestureRecognizer.state == UIGestureRecognizerStateBegan){
         [alertView show];
+
     }
 }
 
@@ -108,6 +111,7 @@
             if(!error){
                 [object removeObject:currentUserName forKey:@"assignedDoctors"];
                 [object saveInBackground];
+
                 [self viewDidLoad];
             }
         }];

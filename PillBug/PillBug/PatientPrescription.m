@@ -93,6 +93,8 @@
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Remove" message:drugName delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        [self viewDidLoad];
+
     }
     else if (gestureRecognizer.state == UIGestureRecognizerStateBegan){
         [alertView show];
@@ -105,6 +107,7 @@
     NSString *drugName = [drugs objectForKey:@"drugName"];
     
     if(buttonIndex == 1){
+        
         PFQuery *retrieveDrug = [PFQuery queryWithClassName:@"Drugs"];
         
         [retrieveDrug whereKey:@"drugName" equalTo:drugName];
@@ -114,6 +117,8 @@
             if(!error){
                 [object removeObject:currentUserName forKey:@"assignedPatients"];
                 [object saveInBackground];
+                [self viewDidLoad];
+
             }
         }];
         
@@ -126,10 +131,10 @@
             if(!error){
                 [object deleteInBackground];
                 [object saveInBackground];
-                
                 [self viewDidLoad];
             }
         }];
+
     }
 }
 

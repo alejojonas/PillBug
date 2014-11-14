@@ -93,10 +93,14 @@
         PFObject *newPrescription = [PFObject objectWithClassName:@"Prescriptions"];
         newPrescription[@"drugName"] = drugName;
         newPrescription[@"patientUsername"] = patientName;
+        
         newPrescription[@"prescriberName"] = [[PFUser currentUser] username];
-        [newPrescription saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            
-        }];
+        
+        [newPrescription addObjectsFromArray: @[ @(0), @(0), @(0), @(0), @(0), @(0), @(0) ]forKey:@"days"];
+        
+        [newPrescription addObjectsFromArray: @[]forKey:@"times"];
+
+        [newPrescription saveInBackground];
         
         [self dismissViewControllerAnimated:YES completion:nil];
         

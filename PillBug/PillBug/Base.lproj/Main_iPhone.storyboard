@@ -416,15 +416,99 @@
                                     <navigationItem title="EDIT PRESCRIPTION" id="FeV-LG-eGF">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="co8-jt-ogN">
                                             <connections>
-                                                <action selector="backBtn:" destination="ae5-5w-BsI" id="2ei-tV-R68"/>
+                                                <action selector="backBtn:" destination="ae5-5w-BsI" id="GEs-a7-6Kj"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="w4J-Al-xU6">
+                                            <connections>
+                                                <action selector="saveBtn:" destination="ae5-5w-BsI" id="Vsp-2h-Khr"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qT9-ro-qOD">
+                                <rect key="frame" x="31" y="120" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="S">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sundayBtn:" destination="ae5-5w-BsI" eventType="touchUpInside" id="PuV-NS-eip"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ola-b9-jgm">
+                                <rect key="frame" x="69" y="120" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="M">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mondayBtn:" destination="ae5-5w-BsI" eventType="touchUpInside" id="VQd-zq-2tp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaQ-QC-aPn">
+                                <rect key="frame" x="107" y="120" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="T">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tuesdayBtn:" destination="ae5-5w-BsI" eventType="touchUpInside" id="4ef-rb-mr7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h58-5S-FgV">
+                                <rect key="frame" x="145" y="120" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="W">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="wednesdayBtn:" destination="ae5-5w-BsI" eventType="touchUpInside" id="iZz-mn-e8W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vny-Wj-wBh">
+                                <rect key="frame" x="183" y="120" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="T">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="thursdayBtn:" destination="ae5-5w-BsI" eventType="touchUpInside" id="vmx-zw-cUN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iv9-Fx-u8Y">
+                                <rect key="frame" x="221" y="120" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="F">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fridayBtn:" destination="ae5-5w-BsI" eventType="touchUpInside" id="fRV-os-OPj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvw-oK-zlK">
+                                <rect key="frame" x="259" y="120" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="S">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saturdayBtn:" destination="ae5-5w-BsI" eventType="touchUpInside" id="dli-50-AuN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="friday" destination="Iv9-Fx-u8Y" id="WcU-ar-2fi"/>
+                        <outlet property="monday" destination="Ola-b9-jgm" id="8xh-Hu-zM9"/>
+                        <outlet property="saturday" destination="Rvw-oK-zlK" id="PFF-9L-spW"/>
+                        <outlet property="sunday" destination="qT9-ro-qOD" id="Cws-Co-uN2"/>
+                        <outlet property="thursday" destination="vny-Wj-wBh" id="Ngh-Sd-fMc"/>
+                        <outlet property="tuesday" destination="jaQ-QC-aPn" id="eKp-Nj-W0X"/>
+                        <outlet property="wednesday" destination="h58-5S-FgV" id="JMi-n8-C50"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lV-ct-KXm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
