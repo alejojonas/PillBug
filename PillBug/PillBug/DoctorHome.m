@@ -48,7 +48,7 @@
   
 
     UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
-    lpHandler.minimumPressDuration = 1; //seconds
+    lpHandler.minimumPressDuration = .5; //seconds
     [tableView addGestureRecognizer:lpHandler];
     
 }
@@ -77,6 +77,10 @@
     
 }
 
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self viewDidLoad];
+}
+
 -(void)longPressHandler:(UILongPressGestureRecognizer *)gestureRecognizer
 {
     CGPoint p = [gestureRecognizer locationInView:tableView];
@@ -91,6 +95,7 @@
 
     }
     else if (gestureRecognizer.state == UIGestureRecognizerStateBegan){
+        alertView.tag = indexPath.row;
         [alertView show];
 
     }
@@ -111,10 +116,11 @@
             if(!error){
                 [object removeObject:currentUserName forKey:@"assignedDoctors"];
                 [object saveInBackground];
-
+                [tableView reloadData];
                 [self viewDidLoad];
             }
         }];
+   
     }
 }
 

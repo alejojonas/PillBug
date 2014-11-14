@@ -46,6 +46,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     TabBarController *tabBar = (TabBarController *)self.tabBarController;
     self.patientUsername = tabBar.patientUsername;
     
@@ -53,9 +54,13 @@
     
     
     UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
-    lpHandler.minimumPressDuration = 1; //seconds
+    lpHandler.minimumPressDuration = .5; //seconds
     [tableView addGestureRecognizer:lpHandler];
     
+}
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self viewDidLoad];
 }
 
 - (void) retrieveFromParse{
@@ -93,10 +98,11 @@
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Remove" message:drugName delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        [self viewDidLoad];
 
     }
     else if (gestureRecognizer.state == UIGestureRecognizerStateBegan){
+        alertView.tag = indexPath.row;
+
         [alertView show];
     }
 }
@@ -117,8 +123,8 @@
             if(!error){
                 [object removeObject:currentUserName forKey:@"assignedPatients"];
                 [object saveInBackground];
+                [tableView reloadData];
                 [self viewDidLoad];
-
             }
         }];
         
@@ -131,6 +137,7 @@
             if(!error){
                 [object deleteInBackground];
                 [object saveInBackground];
+                [tableView reloadData];
                 [self viewDidLoad];
             }
         }];

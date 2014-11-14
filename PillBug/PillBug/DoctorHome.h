@@ -16,6 +16,7 @@
     NSArray * mainArray;
 }
 - (IBAction)logOutBtn:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *addPatient;
 
