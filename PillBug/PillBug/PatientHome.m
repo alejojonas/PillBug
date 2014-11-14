@@ -85,6 +85,9 @@
     PFObject *drugs = [mainArray objectAtIndex:indexPath.row];
     NSString *drugNameString = [drugs objectForKey:@"drugName"];
     self.tempDrugName = drugNameString;
+    
+    [self performSegueWithIdentifier:@"prescriptionDetail" sender:self];
+
 }
 
 

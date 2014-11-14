@@ -30,16 +30,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    NSLog(drugName);
     // Do any additional setup after loading the view.
     PFQuery *query = [PFQuery queryWithClassName:@"Drugs"];
-    /*[query whereKey:@"drugName" equalTo:drugName];
+    [query whereKey:@"drugName" equalTo:drugName];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         NSString *name = [object objectForKey:@"drugName"];
         self.prescriptionNameLabel.text = name;
         NSString *catagory = [object objectForKey:@"drugCatagory"];
         self.drugCategoryLabel.text = catagory;
         
-    }];*/
+    }];
     
 }
 

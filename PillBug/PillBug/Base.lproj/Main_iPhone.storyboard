@@ -611,9 +611,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="xYS-ih-oIi" kind="modal" identifier="prescriptionDetail" id="yvQ-7d-gf6"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -622,6 +619,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="tfd-W5-cim"/>
+                    <connections>
+                        <segue destination="xYS-ih-oIi" kind="modal" identifier="prescriptionDetail" id="zxW-eV-Si4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jbm-7t-LAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
