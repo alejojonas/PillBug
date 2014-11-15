@@ -11,6 +11,8 @@
 
 @interface PrescriptionEditor : UIViewController <UITabBarDelegate, UITableViewDataSource> {
     IBOutlet UITableView *tableView;
+    NSArray * timeArray;
+
 }
 
 - (IBAction)backBtn:(id)sender;

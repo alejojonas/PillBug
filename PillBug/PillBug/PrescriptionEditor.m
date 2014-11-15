@@ -37,6 +37,8 @@
 {
     [super viewDidLoad];
     
+
+    
     PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
     
     [retrievePrescription whereKey:@"patientUsername" equalTo:self.patientUsername];
@@ -44,9 +46,12 @@
     [retrievePrescription whereKey:@"drugName" equalTo:self.drugName];
     
     
+    
+    
     [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if(!error){
             dayArray = [object objectForKey:@"days"];
+            timeArray = [object objectForKey:@"times"];
             [sunday setSelected:[[dayArray objectAtIndex:0]boolValue]];
             [monday setSelected:[[dayArray objectAtIndex:1]boolValue]];
             [tuesday setSelected:[[dayArray objectAtIndex:2]boolValue]];
@@ -55,12 +60,31 @@
             [friday setSelected:[[dayArray objectAtIndex:5]boolValue]];
             [saturday setSelected:[[dayArray objectAtIndex:6]boolValue]];
 
-
+            [tableView reloadData];
         }
     }];
     
-  //  [sunday setSelected:[];
+
+    
     // Do any additional setup after loading the view.
+}
+
+
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timeCell"];
+    NSLog(@"%@",[timeArray objectAtIndex:indexPath.row]);
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",[timeArray objectAtIndex:indexPath.row]];
+    return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+    
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [timeArray count];
 }
 
 - (void)didReceiveMemoryWarning
