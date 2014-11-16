@@ -96,6 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="addPatient" destination="jfI-bf-r7Q" id="8Qq-oA-Rza"/>
+                        <outlet property="searchBar" destination="r4t-uh-cdu" id="9VN-Ra-2Yu"/>
                         <outlet property="tableView" destination="PKe-ZD-YyB" id="bqW-eG-ATW"/>
                     </connections>
                 </viewController>
@@ -390,6 +391,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="PRESCRIPTIONS" id="Mdo-O3-4n6"/>
                     <connections>
+                        <outlet property="searchBar" destination="v8g-e4-44I" id="g1H-YA-j8I"/>
                         <outlet property="tableView" destination="Hpx-TY-Kpd" id="FrP-86-aFB"/>
                     </connections>
                 </viewController>

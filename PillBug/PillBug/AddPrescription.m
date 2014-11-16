@@ -33,7 +33,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    self.searchBar.delegate = self;
+
     [self retrieveFromParse];
 }
 
@@ -109,6 +110,14 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [mainArray count];
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import <Parse/PFLogInViewController.h>
 
-@interface DoctorHome : UIViewController <UITabBarDelegate, UITableViewDataSource, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>{
+@interface DoctorHome : UIViewController <UITabBarDelegate, UITableViewDataSource, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UISearchBarDelegate>{
     IBOutlet UITableView *tableView;
     
     NSArray * mainArray;

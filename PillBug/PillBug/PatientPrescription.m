@@ -47,6 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.searchBar.delegate = self;
 
     TabBarController *tabBar = (TabBarController *)self.tabBarController;
     self.patientUsername = tabBar.patientUsername;
@@ -177,7 +178,13 @@
 }
 
 
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
 
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
 
 - (void)didReceiveMemoryWarning
 {

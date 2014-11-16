@@ -43,7 +43,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.searchBar.delegate = self;
+
     [self retrieveFromParse];
   
 
@@ -76,6 +77,16 @@
     
     
 }
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
+
+
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     [self viewDidLoad];

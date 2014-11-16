@@ -136,6 +136,14 @@
     return NO;
 }
 
+- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(textField.text.length >= 2 && range.length == 0){
+        return NO;
+    }else {
+        return YES;
+    }
+}
+
 - (IBAction)backBtn:(id)sender {
     
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Any changes made will not be saved" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Cancel", nil];

@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) NSString *patientUsername;
 @property (nonatomic, strong) NSString *tempDrugName;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 - (IBAction)addPatient:(id)sender;
 
