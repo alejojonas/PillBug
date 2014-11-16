@@ -11,7 +11,7 @@
 
 @interface PrescriptionEditor : UIViewController <UITabBarDelegate, UITableViewDataSource, UITextFieldDelegate> {
     IBOutlet UITableView *tableView;
-    NSArray * timeArray;
+    NSMutableArray * timeArray;
 
 }
 

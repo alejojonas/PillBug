@@ -45,6 +45,10 @@
     
 
     
+    UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
+    lpHandler.minimumPressDuration = .75; //seconds
+    [tableView addGestureRecognizer:lpHandler];
+    
     PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
     
     [retrievePrescription whereKey:@"patientUsername" equalTo:self.patientUsername];
@@ -124,6 +128,24 @@
  }
  */
 
+-(void)longPressHandler:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:tableView];
+    NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:p];
+    
+    
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Remove" message:@"this time" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        
+    }
+    else if (gestureRecognizer.state == UIGestureRecognizerStateBegan){
+        [alertView show];
+        
+    }
+}
+
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.hourText resignFirstResponder];
     [self.minText resignFirstResponder];
@@ -146,7 +168,7 @@
 
 - (IBAction)backBtn:(id)sender {
     
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Any changes made will not be saved" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Cancel", nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Any changes made will not be saved" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Okay", nil];
     
     [alertView show];
     
@@ -157,7 +179,7 @@
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
  
     
-    if(buttonIndex == 0){
+    if(buttonIndex == 1){
         [self dismissViewControllerAnimated:YES completion:nil];
        
     }
@@ -221,6 +243,48 @@
     }
 }
 
+- (IBAction)addBtn:(id)sender {
+    
+    
+    if (self.hourText.text.length <= 0 || self.minText.text.length <= 0) {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"empty field(s)" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+        [alertView show];
+        
+    }else{
+        NSString *timeString = [NSString stringWithFormat:@"%@%@",self.hourText.text,self.minText.text];
+        NSString *hour;
+        NSString *min;
+        
+        if(timeString.length < 4){
+            hour = [timeString substringWithRange:NSMakeRange(0,1)];
+            min = [timeString substringWithRange:NSMakeRange(1,2)];
+        } else {
+            hour = [timeString substringWithRange:NSMakeRange(0,2)];
+            min = [timeString substringWithRange:NSMakeRange(2,2)];
+        }
+        
+        int timeInt = [timeString intValue];
+       
+        if([hour intValue] > 24 || [min intValue] > 60){
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"invalid time" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alertView show];
+        } else if(timeInt > 2400){
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"invalid time" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alertView show];
+        } else {
+            
+            [timeArray addObject:[NSNumber numberWithInt:timeInt]];
+            
+            [tableView reloadData];
+        }
+    }
+    
+}
+
+
+
+
+
 - (IBAction)saveBtn:(id)sender {
     
     //save the days
@@ -236,7 +300,7 @@
         if(!error){
             [object setObject: @[ @(sunday.selected), @(monday.selected), @(tuesday.selected), @(wednesday.selected), @(thursday.selected), @(friday.selected), @(saturday.selected) ]forKey:@"days"];
             
-            
+            [object setObject:timeArray forKey:@"times"];
             [object saveInBackground];
         }
     }];
@@ -251,6 +315,5 @@
 
 
 
-- (IBAction)addBtn:(id)sender {
-}
+
 @end
