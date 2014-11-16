@@ -46,7 +46,7 @@
 
     
     UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
-    lpHandler.minimumPressDuration = .75; //seconds
+    lpHandler.minimumPressDuration = 1; //seconds
     [tableView addGestureRecognizer:lpHandler];
     
     PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
@@ -54,9 +54,6 @@
     [retrievePrescription whereKey:@"patientUsername" equalTo:self.patientUsername];
     
     [retrievePrescription whereKey:@"drugName" equalTo:self.drugName];
-    
-    
-    
     
     [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if(!error){
@@ -141,7 +138,11 @@
         
     }
     else if (gestureRecognizer.state == UIGestureRecognizerStateBegan){
+        NSLog(@"%ld", (long)indexPath.row);
+        
         [alertView show];
+        [timeArray removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
         
     }
 }
