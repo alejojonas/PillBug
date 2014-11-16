@@ -14,6 +14,10 @@
 //ie if "Ibufrofen" in list of medicine, "Ibuprofen.jpg" must exist.
 //
 
+#define ToDoItemKey @"EVENTKEY1"
+#define MessageTitleKey @"MSGKEY1"
+
+
 @interface PatientHome (){
     NSArray *mainArray;
 }
@@ -208,9 +212,43 @@
     
 }
 
+- (void)scheduleNotificationWithItem:(ToDoItem *)item interval:(int)minutesBefore {
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSDateComponents *dateComps = [[NSDateComponents alloc] init];
+    [dateComps setDay:item.day];
+    [dateComps setMonth:item.month];
+    [dateComps setYear:item.year];
+    [dateComps setHour:item.hour];
+    [dateComps setMinute:item.minute];
+    NSDate *itemDate = [calendar dateFromComponents:dateComps];
+    
+    
+    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+    if (localNotif == nil)
+        return;
+    localNotif.fireDate = [itemDate dateByAddingTimeInterval:-(minutesBefore*60)];
+    NSLog(@"fireDate is %@",localNotif.fireDate);
+    localNotif.timeZone = [NSTimeZone defaultTimeZone];
+    
+    localNotif.alertBody = [NSString stringWithFormat:NSLocalizedString(@"%@ in %i minutes.", nil),
+                            item.eventName, minutesBefore];
+    localNotif.alertAction = NSLocalizedString(@"View Details", nil);
+    
+    localNotif.soundName = UILocalNotificationDefaultSoundName;
+    localNotif.applicationIconBadgeNumber = 1;
+    // NSDictionary *infoDict = [NSDictionary dictionaryWithObject:item.eventName forKey:ToDoItemKey];
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:item.eventName,ToDoItemKey, @"Local Push received while running", MessageTitleKey, nil];
+    localNotif.userInfo = infoDict;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+    NSLog(@"scheduledLocalNotifications are %@", [[UIApplication sharedApplication] scheduledLocalNotifications]);
+}
+
+
 - (IBAction)buttonPressed:(id)sender
 {
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    
     
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
     localNotification.alertBody = @"Take your damn pills!";
