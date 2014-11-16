@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface PrescriptionEditor : UIViewController <UITabBarDelegate, UITableViewDataSource> {
+@interface PrescriptionEditor : UIViewController <UITabBarDelegate, UITableViewDataSource, UITextFieldDelegate> {
     IBOutlet UITableView *tableView;
     NSArray * timeArray;
 
@@ -31,6 +31,9 @@
 @property (nonatomic, strong) NSString *patientUsername;
 @property (nonatomic, strong) NSArray *dayArray;
 
+@property (weak, nonatomic) IBOutlet UITextField *hourText;
+@property (weak, nonatomic) IBOutlet UITextField *minText;
+- (IBAction)addBtn:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *sunday;
 @property (weak, nonatomic) IBOutlet UIButton *monday;

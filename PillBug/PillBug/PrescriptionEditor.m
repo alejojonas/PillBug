@@ -37,6 +37,12 @@
 {
     [super viewDidLoad];
     
+    self.hourText.delegate = self;
+    self.minText.delegate = self;
+    
+    self.hourText.keyboardType = UIKeyboardTypeDecimalPad;
+    self.minText.keyboardType = UIKeyboardTypeDecimalPad;
+    
 
     
     PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
@@ -73,8 +79,22 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timeCell"];
-    NSLog(@"%@",[timeArray objectAtIndex:indexPath.row]);
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",[timeArray objectAtIndex:indexPath.row]];
+    NSString *hour;
+    NSString *min;
+    
+    
+    
+    NSString *timeString = [NSString stringWithFormat:@"%@",[timeArray objectAtIndex:indexPath.row] ];
+    
+    if(timeString.length < 4){
+        hour = [timeString substringWithRange:NSMakeRange(0,1)];
+        min = [timeString substringWithRange:NSMakeRange(1,2)];
+    } else {
+        hour = [timeString substringWithRange:NSMakeRange(0,2)];
+        min = [timeString substringWithRange:NSMakeRange(2,2)];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@:%@", hour, min];
     return cell;
 }
 
@@ -103,6 +123,18 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.hourText resignFirstResponder];
+    [self.minText resignFirstResponder];
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField{
+    if(textField){
+        [textField resignFirstResponder];
+    }
+    return NO;
+}
 
 - (IBAction)backBtn:(id)sender {
     
@@ -211,4 +243,6 @@
 
 
 
+- (IBAction)addBtn:(id)sender {
+}
 @end
