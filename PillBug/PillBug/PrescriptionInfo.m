@@ -18,6 +18,16 @@
 @synthesize prescriptionNameLabel;
 @synthesize drugCategoryLabel;
 
+@synthesize sunday;
+@synthesize monday;
+@synthesize tuesday;
+@synthesize wednesday;
+@synthesize thursday;
+@synthesize friday;
+@synthesize saturday;
+@synthesize dayArray;
+@synthesize timeArray;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,9 +40,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    NSLog(drugName);
-    // Do any additional setup after loading the view.
+    
+    sunday.enabled = NO;
+    monday.enabled = NO;
+    tuesday.enabled = NO;
+    wednesday.enabled = NO;
+    thursday.enabled = NO;
+    friday.enabled = NO;
+    saturday.enabled = NO;
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Drugs"];
     [query whereKey:@"drugName" equalTo:drugName];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
@@ -41,6 +57,38 @@
         NSString *catagory = [object objectForKey:@"drugCatagory"];
         self.drugCategoryLabel.text = catagory;
         
+    }];
+    
+    
+    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+    
+    [retrievePrescription whereKey:@"patientUsername" equalTo:[[PFUser currentUser] username ]];
+    
+    [retrievePrescription whereKey:@"drugName" equalTo:drugName];
+    
+    [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if(!error){
+            dayArray = [object objectForKey:@"days"];
+            timeArray = [object objectForKey:@"times"];
+            [sunday setSelected:[[dayArray objectAtIndex:0]boolValue]];
+            [monday setSelected:[[dayArray objectAtIndex:1]boolValue]];
+            [tuesday setSelected:[[dayArray objectAtIndex:2]boolValue]];
+            [wednesday setSelected:[[dayArray objectAtIndex:3]boolValue]];
+            [thursday setSelected:[[dayArray objectAtIndex:4]boolValue]];
+            [friday setSelected:[[dayArray objectAtIndex:5]boolValue]];
+            [saturday setSelected:[[dayArray objectAtIndex:6]boolValue]];
+            
+            NSMutableString *results = [NSMutableString stringWithString:@""];
+            
+            for(int i = 0 ; i < [timeArray count]; i++){
+                NSString *temp = [NSString stringWithFormat:@"%@ ", timeArray[i]];
+                NSLog(temp);
+                [results appendString:temp];
+                
+            }
+            NSLog(results);
+            self.timeLabel.text = results;
+        }
     }];
     
 }

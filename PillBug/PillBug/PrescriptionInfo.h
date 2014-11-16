@@ -14,5 +14,17 @@
 @property NSString* drugName;
 @property (weak, nonatomic) IBOutlet UILabel *prescriptionNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *drugCategoryLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sunday;
+@property (weak, nonatomic) IBOutlet UIButton *monday;
+@property (weak, nonatomic) IBOutlet UIButton *tuesday;
+@property (weak, nonatomic) IBOutlet UIButton *wednesday;
+@property (weak, nonatomic) IBOutlet UIButton *thursday;
+@property (weak, nonatomic) IBOutlet UIButton *friday;
+@property (weak, nonatomic) IBOutlet UIButton *saturday;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
+@property NSArray *dayArray;
+@property NSArray *timeArray;
 
 @end

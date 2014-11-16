@@ -177,6 +177,78 @@
     
 }
 
+- (IBAction)addBtn:(id)sender {
+    
+    
+    if (self.hourText.text.length <= 0 || self.minText.text.length <= 0) {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"empty field(s)" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+        [alertView show];
+        
+    }else{
+        NSString *timeString = [NSString stringWithFormat:@"%@%@",self.hourText.text,self.minText.text];
+        NSString *hour;
+        NSString *min;
+        
+        if(timeString.length < 4){
+            hour = [timeString substringWithRange:NSMakeRange(0,1)];
+            min = [timeString substringWithRange:NSMakeRange(1,2)];
+        } else {
+            hour = [timeString substringWithRange:NSMakeRange(0,2)];
+            min = [timeString substringWithRange:NSMakeRange(2,2)];
+        }
+        
+        int timeInt = [timeString intValue];
+        
+        if([hour intValue] > 24 || [min intValue] > 60){
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"invalid time" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alertView show];
+        } else if(timeInt > 2400){
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"invalid time" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alertView show];
+        } else {
+            
+            [timeArray addObject:[NSNumber numberWithInt:timeInt]];
+            
+            [tableView reloadData];
+            
+            [self.view endEditing:YES];
+        }
+        
+        self.hourText.text = @"";
+        self.minText.text = @"";
+    }
+    
+}
+
+
+- (IBAction)saveBtn:(id)sender {
+    
+    //save the days
+    
+    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+    
+    [retrievePrescription whereKey:@"patientUsername" equalTo:self.patientUsername];
+    
+    [retrievePrescription whereKey:@"drugName" equalTo:self.drugName];
+    
+    
+    [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if(!error){
+            [object setObject: @[ @(sunday.selected), @(monday.selected), @(tuesday.selected), @(wednesday.selected), @(thursday.selected), @(friday.selected), @(saturday.selected) ]forKey:@"days"];
+            
+            [object setObject:timeArray forKey:@"times"];
+            [object saveInBackground];
+        }
+    }];
+    
+    
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
  
     
@@ -244,74 +316,6 @@
     }
 }
 
-- (IBAction)addBtn:(id)sender {
-    
-    
-    if (self.hourText.text.length <= 0 || self.minText.text.length <= 0) {
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"empty field(s)" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-        [alertView show];
-        
-    }else{
-        NSString *timeString = [NSString stringWithFormat:@"%@%@",self.hourText.text,self.minText.text];
-        NSString *hour;
-        NSString *min;
-        
-        if(timeString.length < 4){
-            hour = [timeString substringWithRange:NSMakeRange(0,1)];
-            min = [timeString substringWithRange:NSMakeRange(1,2)];
-        } else {
-            hour = [timeString substringWithRange:NSMakeRange(0,2)];
-            min = [timeString substringWithRange:NSMakeRange(2,2)];
-        }
-        
-        int timeInt = [timeString intValue];
-       
-        if([hour intValue] > 24 || [min intValue] > 60){
-            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"invalid time" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-            [alertView show];
-        } else if(timeInt > 2400){
-            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"invalid time" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-            [alertView show];
-        } else {
-            
-            [timeArray addObject:[NSNumber numberWithInt:timeInt]];
-            
-            [tableView reloadData];
-        }
-    }
-    
-}
-
-
-
-
-
-- (IBAction)saveBtn:(id)sender {
-    
-    //save the days
-    
-    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
-    
-    [retrievePrescription whereKey:@"patientUsername" equalTo:self.patientUsername];
-    
-    [retrievePrescription whereKey:@"drugName" equalTo:self.drugName];
-    
-    
-    [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if(!error){
-            [object setObject: @[ @(sunday.selected), @(monday.selected), @(tuesday.selected), @(wednesday.selected), @(thursday.selected), @(friday.selected), @(saturday.selected) ]forKey:@"days"];
-            
-            [object setObject:timeArray forKey:@"times"];
-            [object saveInBackground];
-        }
-    }];
-    
-    
-    
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-}
 
 
 
