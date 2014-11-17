@@ -43,6 +43,22 @@
     self.hourText.keyboardType = UIKeyboardTypeDecimalPad;
     self.minText.keyboardType = UIKeyboardTypeDecimalPad;
     
+    sunday.layer.borderWidth = .5f;
+    sunday.layer.cornerRadius = 5;
+    monday.layer.borderWidth = .5f;
+    monday.layer.cornerRadius = 5;
+    tuesday.layer.borderWidth = .5f;
+    tuesday.layer.cornerRadius = 5;
+    wednesday.layer.borderWidth = .5f;
+    wednesday.layer.cornerRadius = 5;
+    thursday.layer.borderWidth = .5f;
+    thursday.layer.cornerRadius = 5;
+    friday.layer.borderWidth = .5f;
+    friday.layer.cornerRadius = 5;
+    saturday.layer.borderWidth = .5f;
+    saturday.layer.cornerRadius = 5;
+
+    
 
     
     UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
@@ -60,12 +76,33 @@
             dayArray = [object objectForKey:@"days"];
             timeArray = [object objectForKey:@"times"];
             [sunday setSelected:[[dayArray objectAtIndex:0]boolValue]];
+            if(sunday.selected == true){
+                [sunday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+            }
             [monday setSelected:[[dayArray objectAtIndex:1]boolValue]];
+            if(monday.selected == true){
+                [monday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+            }
             [tuesday setSelected:[[dayArray objectAtIndex:2]boolValue]];
+            if(tuesday.selected == true){
+                [tuesday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+            }
             [wednesday setSelected:[[dayArray objectAtIndex:3]boolValue]];
+            if(wednesday.selected == true){
+                [wednesday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+            }
             [thursday setSelected:[[dayArray objectAtIndex:4]boolValue]];
+            if(thursday.selected == true){
+                [thursday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+            }
             [friday setSelected:[[dayArray objectAtIndex:5]boolValue]];
+            if(friday.selected == true){
+                [friday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+            }
             [saturday setSelected:[[dayArray objectAtIndex:6]boolValue]];
+            if(saturday.selected == true){
+                [saturday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+            }
 
             [tableView reloadData];
         }
@@ -263,56 +300,84 @@
 - (IBAction)sundayBtn:(id)sender {
     if(self.sunday.selected == NO){
         [self.sunday setSelected:YES];
+        [sunday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+
     } else {
         [self.sunday setSelected:NO];
+        [sunday.layer setBackgroundColor:[UIColor clearColor].CGColor];
+
     }
 }
 
 - (IBAction)mondayBtn:(id)sender {
     if(self.monday.selected == NO){
         [self.monday setSelected:YES];
+        [monday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+
     } else {
         [self.monday setSelected:NO];
+        [monday.layer setBackgroundColor:[UIColor clearColor].CGColor];
+
     }
 }
 
 - (IBAction)tuesdayBtn:(id)sender {
     if(self.tuesday.selected == NO){
         [self.tuesday setSelected:YES];
+        [tuesday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+
     } else {
         [self.tuesday setSelected:NO];
+        [tuesday.layer setBackgroundColor:[UIColor clearColor].CGColor];
+
     }
 }
 
 - (IBAction)wednesdayBtn:(id)sender {
     if(self.wednesday.selected == NO){
         [self.wednesday setSelected:YES];
+        [wednesday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+
     } else {
         [self.wednesday setSelected:NO];
+        [wednesday.layer setBackgroundColor:[UIColor clearColor].CGColor];
+
     }
 }
 
 - (IBAction)thursdayBtn:(id)sender {
     if(self.thursday.selected == NO){
         [self.thursday setSelected:YES];
+        [thursday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+
     } else {
         [self.thursday setSelected:NO];
+        [thursday.layer setBackgroundColor:[UIColor clearColor].CGColor];
+
     }
 }
 
 - (IBAction)fridayBtn:(id)sender {
     if(self.friday.selected == NO){
         [self.friday setSelected:YES];
+        [friday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+
     } else {
         [self.friday setSelected:NO];
+        [friday.layer setBackgroundColor:[UIColor clearColor].CGColor];
+
     }
 }
 
 - (IBAction)saturdayBtn:(id)sender {
     if(self.saturday.selected == NO){
         [self.saturday setSelected:YES];
+        [saturday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
+
     } else {
         [self.saturday setSelected:NO];
+        [saturday.layer setBackgroundColor:[UIColor clearColor].CGColor];
+
     }
 }
 

@@ -47,7 +47,7 @@
 
     [self retrieveFromParse];
   
-
+    
     UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
     lpHandler.minimumPressDuration = .5; //seconds
     [tableView addGestureRecognizer:lpHandler];
@@ -146,6 +146,23 @@
     cell.textLabel.text = [tempObject objectForKey:@"patientName"];
     return cell;
 }
+
+/*- (void) tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [cell.layer setCornerRadius:7.0f];
+    [cell.layer setMasksToBounds:YES];
+    [cell.layer setBorderWidth:.5f];
+    [cell.layer setBorderColor:[[UIColor grayColor]CGColor]];
+}
+
+- (CGFloat) tableView:(UITableView *) tableView heightForHeaderInSection:(NSInteger)section{
+    return 20;
+}
+
+- (UIView *)tableView: (UITableView *) tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] init];
+    headerView.backgroundColor = [UIColor clearColor];
+    return  headerView;
+} */
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"selectCell"]){

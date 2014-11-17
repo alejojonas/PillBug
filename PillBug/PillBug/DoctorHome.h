@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import <Parse/PFLogInViewController.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface DoctorHome : UIViewController <UITabBarDelegate, UITableViewDataSource, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UISearchBarDelegate>{
     IBOutlet UITableView *tableView;
