@@ -51,6 +51,8 @@
     lpHandler.minimumPressDuration = .5; //seconds
     [tableView addGestureRecognizer:lpHandler];
     
+    tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableviewbackground"]];
+    
 }
 
 - (void) retrieveFromParse{
