@@ -55,7 +55,7 @@
     
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableviewbackground"]];
     tableView.backgroundView = backgroundImageView;
-   // tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableviewbackground"]];
+    tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFit;
     
 }
 
