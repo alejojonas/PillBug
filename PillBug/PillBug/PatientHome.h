@@ -14,6 +14,9 @@
 @interface PatientHome : UITableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 - (IBAction)LogOutBtn:(id)sender;
 
+@property NSArray *dayArray;
+@property NSArray *timeArray;
+
 @property (nonatomic, strong) NSString *tempDrugName;
 - (IBAction)buttonPressed:(id)sender;
 
@@ -37,8 +40,28 @@
 @property (nonatomic, readwrite) NSInteger second;
 @property (nonatomic, copy) NSString *eventName;
 
+
 @end
 
 @implementation ToDoItem
 @synthesize year, month, day, hour, minute, second, eventName;
+@end
+
+@interface Prescription : NSObject{
+    NSString *drugName;
+    NSArray *days;
+    NSMutableArray *hours;
+    NSMutableArray *minutes;
+}
+
+@property (nonatomic, readwrite) NSString *drugName;
+@property (nonatomic, readwrite) NSArray *days;
+@property (nonatomic, readwrite) NSMutableArray *hours;
+@property (nonatomic, readwrite) NSMutableArray *minutes;
+
+
+@end
+
+@implementation Prescription
+@synthesize drugName,days, hours, minutes;
 @end

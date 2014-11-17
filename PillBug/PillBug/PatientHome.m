@@ -30,7 +30,8 @@
 @implementation PatientHome
 
 @synthesize tempDrugName;
-
+@synthesize timeArray;
+@synthesize dayArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -46,6 +47,75 @@
     [super viewDidLoad];
     
     [self retrieveFromParse];
+    
+    
+    
+    ToDoItem * bob = [[ToDoItem alloc]init];
+    [bob setDay:0];
+    [bob setYear:0];
+    [bob setMonth:0];
+    [bob setHour:0];
+    [bob setMinute:0];
+    [bob setSecond:45];
+    [bob setEventName:@"heeleleleleo"];
+    
+    //scheduleNotificationWithItem( bob, 1);
+    
+    
+    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+    
+    [retrievePrescription whereKey:@"patientUsername" equalTo:[[PFUser currentUser] username ]];
+    
+    
+
+    
+    [retrievePrescription findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+            for(int i = 0; i < [objects count]; i++){
+                PFObject  *temp = [objects objectAtIndex:i];
+                dayArray = [temp objectForKey:@"days"];
+                timeArray =  [temp objectForKey:@"times"];
+                Prescription * tempPrescription = [[Prescription alloc]init];
+                [tempPrescription setDrugName:[temp objectForKey:@"drugName"]];
+                [tempPrescription setDays:dayArray];
+                
+                NSMutableArray *tempHours = [[NSMutableArray alloc]init];
+                NSMutableArray *tempMinutes = [[NSMutableArray alloc]init];
+                
+                for (int k = 0; k < [timeArray count]; k++) {
+                    NSString *timeString = [NSString stringWithFormat:@"%@", [timeArray objectAtIndex:k]];
+                    NSString *hour;
+                    NSString *min;
+                    
+                    if(timeString.length < 4){
+                        hour = [timeString substringWithRange:NSMakeRange(0,1)];
+                        min = [timeString substringWithRange:NSMakeRange(1,2)];
+                    } else {
+                        hour = [timeString substringWithRange:NSMakeRange(0,2)];
+                        min = [timeString substringWithRange:NSMakeRange(2,2)];
+                    }
+                    
+                    int hourInt = [hour integerValue];
+                    
+                    [tempHours addObject:[NSNumber numberWithInt:hourInt]];
+                    
+                    int minInt = [min integerValue];
+                    
+                    [tempMinutes addObject:[NSNumber numberWithInt:minInt]];
+                    
+                }
+    
+                [tempPrescription setHours:tempHours];
+                [tempPrescription setMinutes:tempMinutes];
+
+            }
+        }
+    }];
+    
+    [self scheduleNotificationWithItem:bob interval:1];
+    //second parameters is when says goes off
+    
+    
     
 }
 
@@ -213,6 +283,9 @@
 }
 
 - (void)scheduleNotificationWithItem:(ToDoItem *)item interval:(int)minutesBefore {
+    
+    
+    
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
     NSDateComponents *dateComps = [[NSDateComponents alloc] init];
     [dateComps setDay:item.day];
@@ -220,6 +293,7 @@
     [dateComps setYear:item.year];
     [dateComps setHour:item.hour];
     [dateComps setMinute:item.minute];
+    [dateComps setSecond: item.second];
     NSDate *itemDate = [calendar dateFromComponents:dateComps];
     
     
@@ -256,6 +330,7 @@
     localNotification.repeatInterval = NSMinuteCalendarUnit;
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
     
     
     
