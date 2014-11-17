@@ -152,15 +152,9 @@
     return cell;
 }
 
-/*- (void) tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    [cell.layer setCornerRadius:7.0f];
-    [cell.layer setMasksToBounds:YES];
-    [cell.layer setBorderWidth:.5f];
-    [cell.layer setBackgroundColor:[UIColor clearColor].CGColor];
-    [cell.layer setBorderColor:[[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]CGColor]];
-}
 
-- (CGFloat) tableView:(UITableView *) tableView heightForHeaderInSection:(NSInteger)section{
+
+/*- (CGFloat) tableView:(UITableView *) tableView heightForHeaderInSection:(NSInteger)section{
     return 20;
 }
 
