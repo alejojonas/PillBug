@@ -46,7 +46,6 @@
     self.searchBar.delegate = self;
 
     [self retrieveFromParse];
-  
     
     UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
     lpHandler.minimumPressDuration = .5; //seconds

@@ -37,10 +37,16 @@
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         NSString *name = [object objectForKey:@"patientName"];
         self.nameLabel.text = name;
+        [self.nameLabel setTextColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+
         NSString *dob = [object objectForKey:@"dateOfBirth"];
         self.dobLabel.text = dob;
+        [self.dobLabel setTextColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+
         NSString *phoneNumber = [object objectForKey:@"phoneNumber"];
         self.numberLabel.text = phoneNumber;
+        [self.numberLabel setTextColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+
     }];
     
     
