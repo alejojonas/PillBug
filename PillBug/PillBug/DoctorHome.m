@@ -47,11 +47,15 @@
 
     [self retrieveFromParse];
     
+    [tableView setSeparatorColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+    
     UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
     lpHandler.minimumPressDuration = .5; //seconds
     [tableView addGestureRecognizer:lpHandler];
     
-    tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableviewbackground"]];
+    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableviewbackground"]];
+    tableView.backgroundView = backgroundImageView;
+   // tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tableviewbackground"]];
     
 }
 
@@ -152,7 +156,8 @@
     [cell.layer setCornerRadius:7.0f];
     [cell.layer setMasksToBounds:YES];
     [cell.layer setBorderWidth:.5f];
-    [cell.layer setBorderColor:[[UIColor grayColor]CGColor]];
+    [cell.layer setBackgroundColor:[UIColor clearColor].CGColor];
+    [cell.layer setBorderColor:[[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]CGColor]];
 }
 
 - (CGFloat) tableView:(UITableView *) tableView heightForHeaderInSection:(NSInteger)section{

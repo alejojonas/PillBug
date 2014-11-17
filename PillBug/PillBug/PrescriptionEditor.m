@@ -58,7 +58,8 @@
     saturday.layer.borderWidth = .5f;
     saturday.layer.cornerRadius = 5;
 
-    
+    [tableView setSeparatorColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+
 
     
     UILongPressGestureRecognizer *lpHandler = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
