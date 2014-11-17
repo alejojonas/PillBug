@@ -16,7 +16,8 @@
 
 @synthesize drugName;
 @synthesize prescriptionNameLabel;
-@synthesize drugCategoryLabel;
+@synthesize dosage;
+@synthesize presriberLabel;
 
 @synthesize sunday;
 @synthesize monday;
@@ -70,8 +71,13 @@
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         NSString *name = [object objectForKey:@"drugName"];
         self.prescriptionNameLabel.text = name;
-        NSString *catagory = [object objectForKey:@"drugCatagory"];
-        self.drugCategoryLabel.text = catagory;
+        [self.prescriptionNameLabel setTextColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+        NSNumber *dosageNum = [object objectForKey:@"dosageNumPills"];
+        self.dosage.text = [NSString stringWithFormat:@"%@", dosageNum];
+        [self.dosage setTextColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+
+     //   NSString *catagory = [object objectForKey:@"drugCatagory"];
+     //   self.drugCategoryLabel.text = catagory;
         
     }];
     
@@ -131,14 +137,29 @@
             NSMutableString *results = [NSMutableString stringWithString:@""];
             
             for(int i = 0 ; i < [timeArray count]; i++){
-                NSString *temp = [NSString stringWithFormat:@"%@ ", timeArray[i]];
-                NSLog(temp);
+                NSString *timeString = [NSString stringWithFormat:@"%@", [timeArray objectAtIndex:i]];
+                NSString *hour;
+                NSString *min;
+                
+                if(timeString.length < 4){
+                    hour = [timeString substringWithRange:NSMakeRange(0,1)];
+                    min = [timeString substringWithRange:NSMakeRange(1,2)];
+                } else {
+                    hour = [timeString substringWithRange:NSMakeRange(0,2)];
+                    min = [timeString substringWithRange:NSMakeRange(2,2)];
+                }
+                
+                NSString *temp = [NSString stringWithFormat:@"%@:%@    ", hour, min];
                 [results appendString:temp];
                 
             }
-            NSLog(results);
             self.timeLabel.text = results;
+            [self.timeLabel setTextColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+
         }
+        
+        self.presriberLabel.text = [object objectForKey:@"prescriberName"];
+        [self.presriberLabel setTextColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
     }];
     
 }

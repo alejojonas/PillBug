@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backBtn;
 @property NSString* drugName;
 @property (weak, nonatomic) IBOutlet UILabel *prescriptionNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *drugCategoryLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sunday;
 @property (weak, nonatomic) IBOutlet UIButton *monday;
 @property (weak, nonatomic) IBOutlet UIButton *tuesday;
@@ -23,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *saturday;
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dosage;
+@property (weak, nonatomic) IBOutlet UILabel *presriberLabel;
 
 @property NSArray *dayArray;
 @property NSArray *timeArray;
