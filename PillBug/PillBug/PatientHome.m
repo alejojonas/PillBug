@@ -53,9 +53,9 @@
     
     [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(checkForUpdate) userInfo:nil repeats:YES];
     
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patientbkg"]];
+    /*UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patientbkg"]];
     self.tableView.backgroundView = backgroundImageView;
-    self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFit;
+    self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFit;*/
     
     [self retrieveFromParse];
     

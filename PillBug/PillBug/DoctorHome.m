@@ -53,9 +53,9 @@
     lpHandler.minimumPressDuration = .5; //seconds
     [tableView addGestureRecognizer:lpHandler];
     
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableviewbackground"]];
+  /*  UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableviewbackground"]];
     tableView.backgroundView = backgroundImageView;
-    tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFit;
+    tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFit;*/
     
 }
 

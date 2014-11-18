@@ -34,9 +34,9 @@
     // Do any additional setup after loading the view.
     
     self.searchBar.delegate = self;
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableviewbackgroundflip"]];
+    /*UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableviewbackgroundflip"]];
     tableView.backgroundView = backgroundImageView;
-    tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFit;
+    tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFit;*/
     [self retrieveFromParse];
 }
 

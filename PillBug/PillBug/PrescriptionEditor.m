@@ -63,9 +63,9 @@
 
     [tableView setSeparatorColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
 
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableviewbackgroundright"]];
+   /* UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableviewbackgroundright"]];
     tableView.backgroundView = backgroundImageView;
-    tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFit;
+    tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFit;*/
     
     
     

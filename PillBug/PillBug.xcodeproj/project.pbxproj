@@ -56,6 +56,7 @@
 		ED43544D1A1AF0920029B21A /* PillBugLoginButtonLarge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED4354491A1AF0920029B21A /* PillBugLoginButtonLarge.jpg */; };
 		ED43544E1A1AF0920029B21A /* PillBugLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED43544A1A1AF0920029B21A /* PillBugLogo.jpg */; };
 		ED43544F1A1AF0920029B21A /* PillBugTitle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED43544B1A1AF0920029B21A /* PillBugTitle.jpg */; };
+		ED4354531A1AFDEA0029B21A /* PillBugIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4354521A1AFDEA0029B21A /* PillBugIcon.png */; };
 		ED9782951A0F3ACE0058B428 /* Advil.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782931A0F3ACE0058B428 /* Advil.jpg */; };
 		ED9782961A0F3ACE0058B428 /* AdvilBottle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782941A0F3ACE0058B428 /* AdvilBottle.jpg */; };
 		ED9782991A0F3ADF0058B428 /* Ibuprofen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782971A0F3ADF0058B428 /* Ibuprofen.jpg */; };
@@ -140,6 +141,7 @@
 		ED4354491A1AF0920029B21A /* PillBugLoginButtonLarge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PillBugLoginButtonLarge.jpg; sourceTree = "<group>"; };
 		ED43544A1A1AF0920029B21A /* PillBugLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PillBugLogo.jpg; sourceTree = "<group>"; };
 		ED43544B1A1AF0920029B21A /* PillBugTitle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PillBugTitle.jpg; sourceTree = "<group>"; };
+		ED4354521A1AFDEA0029B21A /* PillBugIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PillBugIcon.png; sourceTree = "<group>"; };
 		ED9782931A0F3ACE0058B428 /* Advil.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Advil.jpg; sourceTree = "<group>"; };
 		ED9782941A0F3ACE0058B428 /* AdvilBottle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AdvilBottle.jpg; sourceTree = "<group>"; };
 		ED9782971A0F3ADF0058B428 /* Ibuprofen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ibuprofen.jpg; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		ED9782A21A0F41380058B428 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ED4354521A1AFDEA0029B21A /* PillBugIcon.png */,
 				ED4354431A1AD2090029B21A /* tableviewbackground.png */,
 				ED4354411A1AD1B30029B21A /* tableviewbackgroundflip.png */,
 				ED4354391A1AC1C80029B21A /* patientbkg.png */,
@@ -395,6 +398,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Team10;
 				TargetAttributes = {
+					ED1A770B1A0D897500FEF54F = {
+						DevelopmentTeam = 4NZP92642L;
+					};
 					ED1A772F1A0D897500FEF54F = {
 						TestTargetID = ED1A770B1A0D897500FEF54F;
 					};
@@ -442,6 +448,7 @@
 				ED97829A1A0F3ADF0058B428 /* IbuprofenBottle.jpg in Resources */,
 				ED9782991A0F3ADF0058B428 /* Ibuprofen.jpg in Resources */,
 				ED43543A1A1AC1C80029B21A /* patientbkg.png in Resources */,
+				ED4354531A1AFDEA0029B21A /* PillBugIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +554,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -608,6 +616,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -616,6 +626,7 @@
 				GCC_PREFIX_HEADER = "PillBug/PillBug-Prefix.pch";
 				INFOPLIST_FILE = "PillBug/PillBug-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -625,6 +636,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -633,6 +646,7 @@
 				GCC_PREFIX_HEADER = "PillBug/PillBug-Prefix.pch";
 				INFOPLIST_FILE = "PillBug/PillBug-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
