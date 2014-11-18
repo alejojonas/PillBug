@@ -353,49 +353,53 @@
 - (IBAction)buttonPressed:(id)sender
 {
     
-    
-    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
-    
-    [retrievePrescription whereKey:@"patientUsername" equalTo:[[PFUser currentUser] username ]];
-    
-    [retrievePrescription findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(!error){
-            int i = rand()%[objects count];
-            PFObject  *temp = [objects objectAtIndex:i];
-            NSString *drugName = [temp objectForKey:@"drugName"];
-            NSString *randomTime;
-            int j = rand()%[[temp objectForKey:@"times"]count];
-            for (int k = 0; k < [[temp objectForKey:@"times"]count]; k++) {
-                NSString *timeString = [NSString stringWithFormat:@"%@", [timeArray objectAtIndex:k]];
-                NSString *hour;
-                NSString *min;
-                
-                if(timeString.length < 4){
-                    hour = [timeString substringWithRange:NSMakeRange(0,1)];
-                    min = [timeString substringWithRange:NSMakeRange(1,2)];
-                } else {
-                    hour = [timeString substringWithRange:NSMakeRange(0,2)];
-                    min = [timeString substringWithRange:NSMakeRange(2,2)];
+    if([mainArray count] > 0 ){
+        PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+        
+        [retrievePrescription whereKey:@"patientUsername" equalTo:[[PFUser currentUser] username ]];
+        
+        [retrievePrescription findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if(!error){
+                int i = rand()%[objects count];
+                PFObject  *temp = [objects objectAtIndex:i];
+                NSString *drugName = [temp objectForKey:@"drugName"];
+                NSString *randomTime;
+                int j = rand()%[[temp objectForKey:@"times"]count];
+                for (int k = 0; k < [[temp objectForKey:@"times"]count]; k++) {
+                    NSString *timeString = [NSString stringWithFormat:@"%@", [timeArray objectAtIndex:k]];
+                    NSString *hour;
+                    NSString *min;
+                    
+                    if(timeString.length < 4){
+                        hour = [timeString substringWithRange:NSMakeRange(0,1)];
+                        min = [timeString substringWithRange:NSMakeRange(1,2)];
+                    } else {
+                        hour = [timeString substringWithRange:NSMakeRange(0,2)];
+                        min = [timeString substringWithRange:NSMakeRange(2,2)];
+                    }
+                    
+                    if(k == j){
+                        randomTime = [NSString stringWithFormat:@"%@:%@", hour, min];
+                        break;
+                    }
+                    
                 }
                 
-                if(k == j){
-                    randomTime = [NSString stringWithFormat:@"%@:%@", hour, min];
-                    break;
-                }
+                UILocalNotification *localNotification = [[UILocalNotification alloc] init];
                 
+                
+                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+                localNotification.alertBody = [NSString stringWithFormat:@"It is now %@, please take %@", randomTime, drugName];
+                localNotification.timeZone = [NSTimeZone defaultTimeZone];
+                localNotification.soundName = UILocalNotificationDefaultSoundName;
+                [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
             }
             
-            UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-            
-            
-            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-            localNotification.alertBody = [NSString stringWithFormat:@"It is now %@, please take %@", randomTime, drugName];
-            localNotification.timeZone = [NSTimeZone defaultTimeZone];
-            localNotification.soundName = UILocalNotificationDefaultSoundName;
-            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        }
-            
-    }];
+        }];
+    }
+    
+    
+   
     
     
     
