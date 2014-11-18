@@ -75,9 +75,6 @@
     
     [retrievePrescription whereKey:@"patientUsername" equalTo:[[PFUser currentUser] username ]];
     
-    
-
-    
     [retrievePrescription findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             for(int i = 0; i < [objects count]; i++){

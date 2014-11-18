@@ -22,6 +22,7 @@
 @synthesize friday;
 @synthesize saturday;
 @synthesize dayArray;
+@synthesize changed;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,6 +37,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    changed = false;
     
     self.hourText.delegate = self;
     self.minText.delegate = self;
@@ -251,6 +254,7 @@
         } else {
             
             [timeArray addObject:[NSNumber numberWithInt:timeInt]];
+            changed = true;
             
             [tableView reloadData];
             
@@ -267,6 +271,7 @@
 - (IBAction)saveBtn:(id)sender {
     
     //save the days
+    if(changed == true){
     
     PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
     
@@ -291,6 +296,14 @@
     
     
     [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } else {
+        
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"No changes made" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+        [alertView show];
+        
+
+    }
     
 }
 
@@ -307,6 +320,7 @@
 }
 
 - (IBAction)sundayBtn:(id)sender {
+    changed = true;
     if(self.sunday.selected == NO){
         [self.sunday setSelected:YES];
         [sunday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
@@ -319,6 +333,8 @@
 }
 
 - (IBAction)mondayBtn:(id)sender {
+    changed = true;
+
     if(self.monday.selected == NO){
         [self.monday setSelected:YES];
         [monday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
@@ -331,6 +347,8 @@
 }
 
 - (IBAction)tuesdayBtn:(id)sender {
+    changed = true;
+
     if(self.tuesday.selected == NO){
         [self.tuesday setSelected:YES];
         [tuesday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
@@ -343,6 +361,8 @@
 }
 
 - (IBAction)wednesdayBtn:(id)sender {
+    changed = true;
+
     if(self.wednesday.selected == NO){
         [self.wednesday setSelected:YES];
         [wednesday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
@@ -355,6 +375,8 @@
 }
 
 - (IBAction)thursdayBtn:(id)sender {
+    changed = true;
+
     if(self.thursday.selected == NO){
         [self.thursday setSelected:YES];
         [thursday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
@@ -367,6 +389,8 @@
 }
 
 - (IBAction)fridayBtn:(id)sender {
+    changed = true;
+
     if(self.friday.selected == NO){
         [self.friday setSelected:YES];
         [friday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];
@@ -379,6 +403,8 @@
 }
 
 - (IBAction)saturdayBtn:(id)sender {
+    changed = true;
+
     if(self.saturday.selected == NO){
         [self.saturday setSelected:YES];
         [saturday.layer setBackgroundColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor];

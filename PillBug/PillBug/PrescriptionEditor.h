@@ -43,5 +43,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *friday;
 @property (weak, nonatomic) IBOutlet UIButton *saturday;
 
+@property BOOL changed;
+
 
 @end
