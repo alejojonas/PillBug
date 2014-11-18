@@ -42,11 +42,16 @@
     return self;
 }
 
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(checkForUpdate) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(checkForUpdate) userInfo:nil repeats:YES];
     
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patientbkg"]];
     self.tableView.backgroundView = backgroundImageView;
@@ -114,8 +119,6 @@
                 [tempPrescription setHours:tempHours];
                 [tempPrescription setMinutes:tempMinutes];
                 
-                
-
             }
         }
     }];
@@ -133,8 +136,6 @@
     
     [retrievePrescription whereKey:@"patientUsername" equalTo:[[PFUser currentUser] username ]];
     
-    
-    
     [retrievePrescription findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             for(int i = 0; i < [objects count]; i++){
@@ -149,7 +150,7 @@
                     [temp setObject:[NSNumber numberWithBool:NO] forKey:@"updated"];
                     [temp saveInBackground];
                     
-                    
+                    [self viewDidLoad];
                  /*   UILocalNotification *updateNotification = [[UILocalNotification alloc] init];
                     
                     
@@ -187,6 +188,10 @@
     }];
 }
 
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self viewDidLoad];
+}
 
 - (NSString *)getImageFilename:(NSString *)demoPatientData
 {
