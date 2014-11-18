@@ -76,6 +76,8 @@
     
     [retrievePatientNames whereKey:@"patientUsername" equalTo:patientName];
     
+    [retrievePatientNames whereKey:@"prescriberName" equalTo:[[PFUser currentUser] username]];
+    
     [retrievePatientNames findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             mainArray = [[NSArray alloc]initWithArray:objects];
