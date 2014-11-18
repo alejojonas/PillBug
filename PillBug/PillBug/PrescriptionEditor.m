@@ -187,6 +187,8 @@
         NSLog(@"%ld", (long)indexPath.row);
         
         [alertView show];
+        changed = true;
+
         [timeArray removeObjectAtIndex:indexPath.row];
         [tableView reloadData];
         

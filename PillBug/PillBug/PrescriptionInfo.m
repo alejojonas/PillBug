@@ -164,6 +164,10 @@
     
 }
 
+- (void) fakefunction {
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

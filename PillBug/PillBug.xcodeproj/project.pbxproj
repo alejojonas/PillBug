@@ -51,6 +51,11 @@
 		ED43543A1A1AC1C80029B21A /* patientbkg.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4354391A1AC1C80029B21A /* patientbkg.png */; };
 		ED4354421A1AD1B30029B21A /* tableviewbackgroundflip.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4354411A1AD1B30029B21A /* tableviewbackgroundflip.png */; };
 		ED4354441A1AD2090029B21A /* tableviewbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4354431A1AD2090029B21A /* tableviewbackground.png */; };
+		ED4354471A1AEF630029B21A /* MyLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4354461A1AEF630029B21A /* MyLogInViewController.m */; };
+		ED43544C1A1AF0920029B21A /* PillBugField2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED4354481A1AF0920029B21A /* PillBugField2.jpg */; };
+		ED43544D1A1AF0920029B21A /* PillBugLoginButtonLarge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED4354491A1AF0920029B21A /* PillBugLoginButtonLarge.jpg */; };
+		ED43544E1A1AF0920029B21A /* PillBugLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED43544A1A1AF0920029B21A /* PillBugLogo.jpg */; };
+		ED43544F1A1AF0920029B21A /* PillBugTitle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED43544B1A1AF0920029B21A /* PillBugTitle.jpg */; };
 		ED9782951A0F3ACE0058B428 /* Advil.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782931A0F3ACE0058B428 /* Advil.jpg */; };
 		ED9782961A0F3ACE0058B428 /* AdvilBottle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782941A0F3ACE0058B428 /* AdvilBottle.jpg */; };
 		ED9782991A0F3ADF0058B428 /* Ibuprofen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED9782971A0F3ADF0058B428 /* Ibuprofen.jpg */; };
@@ -129,6 +134,12 @@
 		ED4354391A1AC1C80029B21A /* patientbkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientbkg.png; sourceTree = "<group>"; };
 		ED4354411A1AD1B30029B21A /* tableviewbackgroundflip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableviewbackgroundflip.png; sourceTree = "<group>"; };
 		ED4354431A1AD2090029B21A /* tableviewbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableviewbackground.png; sourceTree = "<group>"; };
+		ED4354451A1AEF630029B21A /* MyLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLogInViewController.h; sourceTree = "<group>"; };
+		ED4354461A1AEF630029B21A /* MyLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLogInViewController.m; sourceTree = "<group>"; };
+		ED4354481A1AF0920029B21A /* PillBugField2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PillBugField2.jpg; sourceTree = "<group>"; };
+		ED4354491A1AF0920029B21A /* PillBugLoginButtonLarge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PillBugLoginButtonLarge.jpg; sourceTree = "<group>"; };
+		ED43544A1A1AF0920029B21A /* PillBugLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PillBugLogo.jpg; sourceTree = "<group>"; };
+		ED43544B1A1AF0920029B21A /* PillBugTitle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PillBugTitle.jpg; sourceTree = "<group>"; };
 		ED9782931A0F3ACE0058B428 /* Advil.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Advil.jpg; sourceTree = "<group>"; };
 		ED9782941A0F3ACE0058B428 /* AdvilBottle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AdvilBottle.jpg; sourceTree = "<group>"; };
 		ED9782971A0F3ADF0058B428 /* Ibuprofen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ibuprofen.jpg; sourceTree = "<group>"; };
@@ -182,6 +193,12 @@
 		ED15C9FE1A0F5D5C007E7BDC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				ED4354481A1AF0920029B21A /* PillBugField2.jpg */,
+				ED4354491A1AF0920029B21A /* PillBugLoginButtonLarge.jpg */,
+				ED43544A1A1AF0920029B21A /* PillBugLogo.jpg */,
+				ED43544B1A1AF0920029B21A /* PillBugTitle.jpg */,
+				ED4354451A1AEF630029B21A /* MyLogInViewController.h */,
+				ED4354461A1AEF630029B21A /* MyLogInViewController.m */,
 				ED1A77271A0D897500FEF54F /* Login.h */,
 				ED1A77281A0D897500FEF54F /* Login.m */,
 				ED15C9BC1A0EB5E5007E7BDC /* RegisterViewController.h */,
@@ -413,11 +430,15 @@
 				ED1A77261A0D897500FEF54F /* Main_iPad.storyboard in Resources */,
 				ED1A772B1A0D897500FEF54F /* Images.xcassets in Resources */,
 				ED97829D1A0F3AEA0058B428 /* Tylenol.jpg in Resources */,
+				ED43544C1A1AF0920029B21A /* PillBugField2.jpg in Resources */,
 				ED97829E1A0F3AEA0058B428 /* TylenolBottle.jpg in Resources */,
+				ED43544E1A1AF0920029B21A /* PillBugLogo.jpg in Resources */,
 				ED9782961A0F3ACE0058B428 /* AdvilBottle.jpg in Resources */,
+				ED43544D1A1AF0920029B21A /* PillBugLoginButtonLarge.jpg in Resources */,
 				ED1A77231A0D897500FEF54F /* Main_iPhone.storyboard in Resources */,
 				ED9782951A0F3ACE0058B428 /* Advil.jpg in Resources */,
 				ED1A771A1A0D897500FEF54F /* InfoPlist.strings in Resources */,
+				ED43544F1A1AF0920029B21A /* PillBugTitle.jpg in Resources */,
 				ED97829A1A0F3ADF0058B428 /* IbuprofenBottle.jpg in Resources */,
 				ED9782991A0F3ADF0058B428 /* Ibuprofen.jpg in Resources */,
 				ED43543A1A1AC1C80029B21A /* patientbkg.png in Resources */,
@@ -443,6 +464,7 @@
 				ED1A77291A0D897500FEF54F /* Login.m in Sources */,
 				ED15C9EE1A0F567F007E7BDC /* AddPatient.m in Sources */,
 				ED15C9BE1A0EB5E5007E7BDC /* RegisterViewController.m in Sources */,
+				ED4354471A1AEF630029B21A /* MyLogInViewController.m in Sources */,
 				ED15C9F71A0F594F007E7BDC /* PatientPrescription.m in Sources */,
 				ED9782A11A0F3BD10058B428 /* PatientHome.m in Sources */,
 				ED1A776C1A0D94F400FEF54F /* DoctorHome.m in Sources */,

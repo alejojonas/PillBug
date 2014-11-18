@@ -8,6 +8,7 @@
 
 
 #import "Login.h"
+#import "MyLogInViewController.h"
 #import "RegisterViewController.h"
 
 @interface Login ()
@@ -32,7 +33,7 @@
     
     if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        MyLogInViewController *logInViewController = [[MyLogInViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
         
         // Create the sign up view controller
