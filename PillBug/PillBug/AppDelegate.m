@@ -19,8 +19,10 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     
-    
-    
+    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (locationNotification){
+        [application cancelAllLocalNotifications];
+    }
     
     
     /*if([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])

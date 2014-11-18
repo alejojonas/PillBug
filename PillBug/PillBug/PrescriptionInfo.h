@@ -24,8 +24,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dosage;
 @property (weak, nonatomic) IBOutlet UILabel *presriberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *brandLabel;
 
 @property NSArray *dayArray;
 @property NSArray *timeArray;
+- (IBAction)forgetBtn:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *forgetBtn;
 
 @end

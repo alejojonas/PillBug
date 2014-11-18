@@ -42,15 +42,12 @@
     return self;
 }
 
-- (void) viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:YES];
-    
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    //[self checkForUpdate];
+
     [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(checkForUpdate) userInfo:nil repeats:YES];
     
     /*UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patientbkg"]];
@@ -60,21 +57,9 @@
     [self retrieveFromParse];
     
     [self.tableView setSeparatorColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+    
+    [self.tableView setContentInset:UIEdgeInsetsMake(20, 0, 0, 0)];
 
-    
-    [self checkForUpdate];
-    
-    ToDoItem * bob = [[ToDoItem alloc]init];
-    [bob setDay:0];
-    [bob setYear:0];
-    [bob setMonth:0];
-    [bob setHour:0];
-    [bob setMinute:0];
-    [bob setSecond:45];
-    [bob setEventName:@"heeleleleleo"];
-    
-    //scheduleNotificationWithItem( bob, 1);
-    
     
     PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
     
@@ -123,11 +108,6 @@
         }
     }];
     
-    [self scheduleNotificationWithItem:bob interval:1];
-    //second parameters is when says goes off
-    
-    
-    
 }
 
 - (void) checkForUpdate {
@@ -146,6 +126,8 @@
                     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Doctor has updated" message:drugName delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
                     [temp setObject:[NSNumber numberWithBool:NO] forKey:@"updated"];
                     [temp saveInBackground];
+                    
+                    
                     [alertView show];
                     
                     [self viewDidLoad];
@@ -370,15 +352,53 @@
 
 - (IBAction)buttonPressed:(id)sender
 {
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     
     
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
-    localNotification.alertBody = @"Take your damn pills!";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.repeatInterval = NSMinuteCalendarUnit;
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+    
+    [retrievePrescription whereKey:@"patientUsername" equalTo:[[PFUser currentUser] username ]];
+    
+    [retrievePrescription findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+            int i = rand()%[objects count];
+            PFObject  *temp = [objects objectAtIndex:i];
+            NSString *drugName = [temp objectForKey:@"drugName"];
+            NSString *randomTime;
+            int j = rand()%[[temp objectForKey:@"times"]count];
+            for (int k = 0; k < [[temp objectForKey:@"times"]count]; k++) {
+                NSString *timeString = [NSString stringWithFormat:@"%@", [timeArray objectAtIndex:k]];
+                NSString *hour;
+                NSString *min;
+                
+                if(timeString.length < 4){
+                    hour = [timeString substringWithRange:NSMakeRange(0,1)];
+                    min = [timeString substringWithRange:NSMakeRange(1,2)];
+                } else {
+                    hour = [timeString substringWithRange:NSMakeRange(0,2)];
+                    min = [timeString substringWithRange:NSMakeRange(2,2)];
+                }
+                
+                if(k == j){
+                    randomTime = [NSString stringWithFormat:@"%@:%@", hour, min];
+                    break;
+                }
+                
+            }
+            
+            UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+            
+            
+            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+            localNotification.alertBody = [NSString stringWithFormat:@"It is now %@, please take %@", randomTime, drugName];
+            localNotification.timeZone = [NSTimeZone defaultTimeZone];
+            localNotification.soundName = UILocalNotificationDefaultSoundName;
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        }
+            
+    }];
+    
+    
+    
     
     
 }

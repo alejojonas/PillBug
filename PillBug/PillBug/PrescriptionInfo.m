@@ -18,6 +18,9 @@
 @synthesize prescriptionNameLabel;
 @synthesize dosage;
 @synthesize presriberLabel;
+@synthesize brandLabel;
+
+@synthesize forgetBtn;
 
 @synthesize sunday;
 @synthesize monday;
@@ -65,6 +68,8 @@
     saturday.layer.borderWidth = .5f;
     saturday.layer.cornerRadius = 5;
 
+    forgetBtn.layer.borderWidth = .5f;
+    forgetBtn.layer.cornerRadius = 5;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Drugs"];
     [query whereKey:@"drugName" equalTo:drugName];
@@ -75,6 +80,8 @@
         NSNumber *dosageNum = [object objectForKey:@"dosageNumPills"];
         self.dosage.text = [NSString stringWithFormat:@"%@", dosageNum];
         [self.dosage setTextColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+        self.brandLabel.text = [object objectForKey:@"brandName"];
+        [self.brandLabel setTextColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
 
      //   NSString *catagory = [object objectForKey:@"drugCatagory"];
      //   self.drugCategoryLabel.text = catagory;
@@ -183,6 +190,25 @@
 
 - (IBAction)BackBtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+- (IBAction)forgetBtn:(id)sender {
+    
+    
+    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Drugs"];
+    
+    [retrievePrescription whereKey:@"drugName" equalTo:drugName];
+    
+    [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if(!error){
+            NSString *forgetString = [object objectForKey:@"forgotDose"];
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Instructions:" message:forgetString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            
+            [alertView show];
+        }
+        
+       
+    }];
 
 }
 @end
