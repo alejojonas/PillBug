@@ -51,7 +51,7 @@
 {
     [super viewDidLoad];
     
-    [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(checkForUpdate) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(checkForUpdate) userInfo:nil repeats:YES];
     
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patientbkg"]];
     self.tableView.backgroundView = backgroundImageView;
@@ -151,6 +151,8 @@
                     [temp saveInBackground];
                     
                     [self viewDidLoad];
+                    
+                    break;
                  /*   UILocalNotification *updateNotification = [[UILocalNotification alloc] init];
                     
                     
