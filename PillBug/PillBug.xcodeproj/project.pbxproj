@@ -64,6 +64,8 @@
 		ED97829D1A0F3AEA0058B428 /* Tylenol.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED97829B1A0F3AEA0058B428 /* Tylenol.jpg */; };
 		ED97829E1A0F3AEA0058B428 /* TylenolBottle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED97829C1A0F3AEA0058B428 /* TylenolBottle.jpg */; };
 		ED9782A11A0F3BD10058B428 /* PatientHome.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9782A01A0F3BD10058B428 /* PatientHome.m */; };
+		EDDA36A31A1B1A010046C922 /* PillBugLogo580.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EDDA36A21A1B1A010046C922 /* PillBugLogo580.jpg */; };
+		EDDA36A51A1B1A110046C922 /* PillBugTitleNew.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EDDA36A41A1B1A110046C922 /* PillBugTitleNew.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,8 @@
 		ED97829C1A0F3AEA0058B428 /* TylenolBottle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TylenolBottle.jpg; sourceTree = "<group>"; };
 		ED97829F1A0F3BD10058B428 /* PatientHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientHome.h; sourceTree = "<group>"; };
 		ED9782A01A0F3BD10058B428 /* PatientHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientHome.m; sourceTree = "<group>"; };
+		EDDA36A21A1B1A010046C922 /* PillBugLogo580.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PillBugLogo580.jpg; sourceTree = "<group>"; };
+		EDDA36A41A1B1A110046C922 /* PillBugTitleNew.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PillBugTitleNew.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,8 @@
 		ED15C9FE1A0F5D5C007E7BDC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				EDDA36A41A1B1A110046C922 /* PillBugTitleNew.jpg */,
+				EDDA36A21A1B1A010046C922 /* PillBugLogo580.jpg */,
 				ED4354481A1AF0920029B21A /* PillBugField2.jpg */,
 				ED4354491A1AF0920029B21A /* PillBugLoginButtonLarge.jpg */,
 				ED43544A1A1AF0920029B21A /* PillBugLogo.jpg */,
@@ -440,6 +446,7 @@
 				ED97829E1A0F3AEA0058B428 /* TylenolBottle.jpg in Resources */,
 				ED43544E1A1AF0920029B21A /* PillBugLogo.jpg in Resources */,
 				ED9782961A0F3ACE0058B428 /* AdvilBottle.jpg in Resources */,
+				EDDA36A51A1B1A110046C922 /* PillBugTitleNew.jpg in Resources */,
 				ED43544D1A1AF0920029B21A /* PillBugLoginButtonLarge.jpg in Resources */,
 				ED1A77231A0D897500FEF54F /* Main_iPhone.storyboard in Resources */,
 				ED9782951A0F3ACE0058B428 /* Advil.jpg in Resources */,
@@ -448,6 +455,7 @@
 				ED97829A1A0F3ADF0058B428 /* IbuprofenBottle.jpg in Resources */,
 				ED9782991A0F3ADF0058B428 /* Ibuprofen.jpg in Resources */,
 				ED43543A1A1AC1C80029B21A /* patientbkg.png in Resources */,
+				EDDA36A31A1B1A010046C922 /* PillBugLogo580.jpg in Resources */,
 				ED4354531A1AFDEA0029B21A /* PillBugIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

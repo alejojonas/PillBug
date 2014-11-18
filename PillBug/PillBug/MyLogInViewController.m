@@ -27,8 +27,8 @@
     UIColor *forgotPasswordColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:200.0f/255.0f];
     
     // Set background image and title
-    [self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"PillBugLogo.jpg"]]];
-    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"PillBugTitle.jpg"]]];
+    [self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"PillBugLogo580.jpg"]]];
+    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"PillBugTitleNew.jpg"]]];
     ////[self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background.png"]]];
     ////[self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"PillbugLogoBR.png"]]];
     
@@ -42,7 +42,7 @@
     ////[self.logInView.passwordField setBackground:[UIImage imageNamed:@"TextFieldBox.png"]];
     ////[self.logInView.logInButton setBackgroundImage:[UIImage imageNamed:@"LoginButton.png"] forState:UIControlStateNormal];
     ////[self.logInView.passwordForgottenButton setImage:[UIImage imageNamed:@"ForgotPassword"] forState:UIControlStateNormal];
-
+    
     
     // Set field text
     ////[self.logInView.logInButton setTitle:@"Login" forState:UIControlStateNormal];
@@ -53,8 +53,8 @@
     
     // Set field text size
     self.logInView.logInButton.titleLabel.font = [UIFont systemFontOfSize:18.0f];
-    [self.logInView.usernameField setFont:[UIFont systemFontOfSize:14.0f]];
-    [self.logInView.passwordField setFont:[UIFont systemFontOfSize:14.0f]];
+    [self.logInView.usernameField setFont:[UIFont systemFontOfSize:18.0f]];
+    [self.logInView.passwordField setFont:[UIFont systemFontOfSize:18.0f]];
     
     
     // Set field text color
@@ -63,13 +63,13 @@
     [self.logInView.logInButton setTitleColor:fieldColorActive forState:UIControlStateNormal];
     [self.logInView.usernameField setTextColor:fieldColorActive];
     [self.logInView.passwordField setTextColor:fieldColorActive];
-
+    
     
     self.logInView.usernameField.textAlignment = NSTextAlignmentCenter;
     self.logInView.passwordField.textAlignment = NSTextAlignmentCenter;
     
     
-
+    
     
     
     [self.logInView addSubview:self.fieldsBackground];
@@ -98,11 +98,11 @@
     [super viewDidLayoutSubviews];
     
     // Set frame for elements
-    [self.logInView.logo setFrame:CGRectMake(0.7f, 0.0f, 319.3f, 170.0f)];
-    [self.logInView.usernameField setFrame:CGRectMake(99.0f, 206.0f, 124.0f, 22.0f)];
-    [self.logInView.passwordField setFrame:CGRectMake(97.0f, 282.0f, 123.0f, 21.0f)];
-    [self.logInView.logInButton setFrame:CGRectMake(75.0f, 378.0f, 175.0f, 69.0f)];
-    [self.logInView.passwordForgottenButton setFrame:CGRectMake(95.0f,450.0f, 140.0f, 20.0f)];
+    [self.logInView.logo setFrame:CGRectMake(0.0f, 0.0f, 320.0f, 198.0f)];
+    [self.logInView.usernameField setFrame:CGRectMake(99.0f, 251.0f, 127.0f, 25.0f)];
+    [self.logInView.passwordField setFrame:CGRectMake(97.0f, 343.0f, 130.0f, 23.0f)];
+    [self.logInView.logInButton setFrame:CGRectMake(75.0f, 460.0f, 175.0f, 80.0f)];
+    [self.logInView.passwordForgottenButton setFrame:CGRectMake(95.0f,480.0f, 140.0f, 20.0f)];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
