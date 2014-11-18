@@ -151,6 +151,17 @@
                     
                     [temp setObject:[NSNumber numberWithBool:NO] forKey:@"updated"];
                     [temp saveInBackground];
+                    
+                    
+                 /*   UILocalNotification *updateNotification = [[UILocalNotification alloc] init];
+                    
+                    
+                    updateNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+                    updateNotification.alertBody = @"Prescription updated";
+                    updateNotification.timeZone = [NSTimeZone defaultTimeZone];
+                    updateNotification.repeatInterval = NSMinuteCalendarUnit;
+                    updateNotification.soundName = UILocalNotificationDefaultSoundName;
+                    [[UIApplication sharedApplication] scheduleLocalNotification:updateNotification];*/
 
                 }
                 
@@ -374,8 +385,6 @@
     localNotification.repeatInterval = NSMinuteCalendarUnit;
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    
-    
     
     
 }
