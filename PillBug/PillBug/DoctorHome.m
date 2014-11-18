@@ -153,17 +153,6 @@
 }
 
 
-
-/*- (CGFloat) tableView:(UITableView *) tableView heightForHeaderInSection:(NSInteger)section{
-    return 20;
-}
-
-- (UIView *)tableView: (UITableView *) tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] init];
-    headerView.backgroundColor = [UIColor clearColor];
-    return  headerView;
-} */
-
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"selectCell"]){
         NSIndexPath *indexPath = [tableView indexPathForSelectedRow];

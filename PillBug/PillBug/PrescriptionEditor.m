@@ -273,29 +273,27 @@
     //save the days
     if(changed == true){
     
-    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+        PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
     
-    [retrievePrescription whereKey:@"patientUsername" equalTo:self.patientUsername];
+        [retrievePrescription whereKey:@"patientUsername" equalTo:self.patientUsername];
     
-    [retrievePrescription whereKey:@"drugName" equalTo:self.drugName];
+        [retrievePrescription whereKey:@"drugName" equalTo:self.drugName];
     
     
-    [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if(!error){
-            [object setObject: @[ @(sunday.selected), @(monday.selected), @(tuesday.selected), @(wednesday.selected), @(thursday.selected), @(friday.selected), @(saturday.selected) ]forKey:@"days"];
+        [retrievePrescription getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if(!error){
+                [object setObject: @[ @(sunday.selected), @(monday.selected), @(tuesday.selected), @(wednesday.selected), @(thursday.selected), @(friday.selected), @(saturday.selected) ]forKey:@"days"];
             
-            [object setObject:timeArray forKey:@"times"];
+                [object setObject:timeArray forKey:@"times"];
             
-            [object setObject:[NSNumber numberWithBool:YES] forKey:@"updated"];
+                [object setObject:[NSNumber numberWithBool:YES] forKey:@"updated"];
 
-            [object saveInBackground];
-        }
-    }];
+                [object saveInBackground];
+            }
+        }];
     
     
-    
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
         
     } else {
         
