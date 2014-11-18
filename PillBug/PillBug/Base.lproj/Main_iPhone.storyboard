@@ -665,7 +665,7 @@
                                             <action selector="LogOutBtn:" destination="CRl-m2-Ica" id="x4h-fd-Nzp"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem key="rightBarButtonItem" title="Mark" id="LlZ-JT-egD">
+                                    <barButtonItem key="rightBarButtonItem" title="Demo" id="LlZ-JT-egD">
                                         <connections>
                                             <action selector="buttonPressed:" destination="CRl-m2-Ica" id="vru-7g-bjR"/>
                                         </connections>

@@ -144,24 +144,14 @@
                 
                 if([[temp objectForKey:@"updated"] boolValue] == true){
                     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Doctor has updated" message:drugName delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-                    
-                    [alertView show];
-                    
                     [temp setObject:[NSNumber numberWithBool:NO] forKey:@"updated"];
                     [temp saveInBackground];
+                    [alertView show];
                     
                     [self viewDidLoad];
                     
                     break;
-                 /*   UILocalNotification *updateNotification = [[UILocalNotification alloc] init];
-                    
-                    
-                    updateNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-                    updateNotification.alertBody = @"Prescription updated";
-                    updateNotification.timeZone = [NSTimeZone defaultTimeZone];
-                    updateNotification.repeatInterval = NSMinuteCalendarUnit;
-                    updateNotification.soundName = UILocalNotificationDefaultSoundName;
-                    [[UIApplication sharedApplication] scheduleLocalNotification:updateNotification];*/
+           
 
                 }
                 
