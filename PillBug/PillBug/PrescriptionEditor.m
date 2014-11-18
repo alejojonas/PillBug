@@ -280,6 +280,9 @@
             [object setObject: @[ @(sunday.selected), @(monday.selected), @(tuesday.selected), @(wednesday.selected), @(thursday.selected), @(friday.selected), @(saturday.selected) ]forKey:@"days"];
             
             [object setObject:timeArray forKey:@"times"];
+            
+            [object setObject:[NSNumber numberWithBool:YES] forKey:@"updated"];
+
             [object saveInBackground];
         }
     }];

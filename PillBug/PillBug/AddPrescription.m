@@ -102,6 +102,8 @@
         [newPrescription addObjectsFromArray: @[ @(0), @(0), @(0), @(0), @(0), @(0), @(0) ]forKey:@"days"];
         
         [newPrescription addObjectsFromArray: @[]forKey:@"times"];
+        
+        newPrescription[@"updated"] = [NSNumber numberWithBool:NO];
 
         [newPrescription saveInBackground];
         

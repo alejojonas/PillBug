@@ -46,6 +46,8 @@
 {
     [super viewDidLoad];
     
+    [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(checkForUpdate) userInfo:nil repeats:YES];
+    
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"patientbkg"]];
     self.tableView.backgroundView = backgroundImageView;
     self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFit;
@@ -54,6 +56,8 @@
     
     [self.tableView setSeparatorColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
 
+    
+    [self checkForUpdate];
     
     ToDoItem * bob = [[ToDoItem alloc]init];
     [bob setDay:0];
@@ -112,6 +116,8 @@
     
                 [tempPrescription setHours:tempHours];
                 [tempPrescription setMinutes:tempMinutes];
+                
+                
 
             }
         }
@@ -120,6 +126,39 @@
     [self scheduleNotificationWithItem:bob interval:1];
     //second parameters is when says goes off
     
+    
+    
+}
+
+- (void) checkForUpdate {
+    
+    PFQuery *retrievePrescription = [PFQuery queryWithClassName:@"Prescriptions"];
+    
+    [retrievePrescription whereKey:@"patientUsername" equalTo:[[PFUser currentUser] username ]];
+    
+    
+    
+    [retrievePrescription findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+            for(int i = 0; i < [objects count]; i++){
+                PFObject  *temp = [objects objectAtIndex:i];
+                NSString *drugName = [temp objectForKey:@"drugName"];
+                
+                if([[temp objectForKey:@"updated"] boolValue] == true){
+                    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Doctor has updated" message:drugName delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+                    
+                    [alertView show];
+                    
+                    [temp setObject:[NSNumber numberWithBool:NO] forKey:@"updated"];
+                    [temp saveInBackground];
+
+                }
+                
+
+                
+            }
+        }
+    }];
     
     
 }
@@ -269,7 +308,7 @@
 }
 
 - (IBAction)LogOutBtn:(id)sender {
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Logging out" message:@"You will no longer recieve doctor updates" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:@"Cancel", nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Logging out" message:@"You will no longer recieve doctor updates" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
     
     [alertView show];
     
@@ -279,7 +318,7 @@
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     
-    if(buttonIndex == 0){
+    if(buttonIndex == 1){
         [PFUser logOut];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
